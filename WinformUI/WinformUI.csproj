@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85E7AA1F-4BC1-4EE5-99D4-8DD3AFD1AF07}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WinformUI</RootNamespace>
+    <AssemblyName>WinformUI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaBlendTextBox">
+      <HintPath>..\..\..\..\..\..\..\Users\asima\Downloads\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RJCodeAdance.RJControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RJCodeAdvance.RJControl2s.1.0.0\lib\net472\RJCodeAdance.RJControls.dll</HintPath>
+    </Reference>
+    <Reference Include="RJCodeAdvance.RJControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RJCodeAdvance.RJControls.1.0.0\lib\net45\RJCodeAdvance.RJControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminPanel\AuthorAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\AuthorAdminForm.Designer.cs">
+      <DependentUpon>AuthorAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\ActorAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\ActorAdminForm.Designer.cs">
+      <DependentUpon>ActorAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\DirectorAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\DirectorAdminForm.Designer.cs">
+      <DependentUpon>DirectorAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MainMenuAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MainMenuAdminForm.Designer.cs">
+      <DependentUpon>MainMenuAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\MovieAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\MovieAdminForm.Designer.cs">
+      <DependentUpon>MovieAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\BookAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\BookAdminForm.Designer.cs">
+      <DependentUpon>BookAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\AccountAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\AccountAdminForm.Designer.cs">
+      <DependentUpon>AccountAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\UtilsAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\UtilsAdminForm.Designer.cs">
+      <DependentUpon>UtilsAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\AccountEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\AccountEditForm.Designer.cs">
+      <DependentUpon>AccountEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\AuthorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\AuthorForm.Designer.cs">
+      <DependentUpon>AuthorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\ActorForm.Designer.cs">
+      <DependentUpon>ActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\BookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\BookForm.Designer.cs">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\CartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\CartForm.Designer.cs">
+      <DependentUpon>CartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\CheckoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\CheckoutForm.Designer.cs">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\DirectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\DirectorForm.Designer.cs">
+      <DependentUpon>DirectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\FavouriteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\FavouriteForm.Designer.cs">
+      <DependentUpon>FavouriteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\MovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\MovieForm.Designer.cs">
+      <DependentUpon>MovieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\WishListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\WishListForm.Designer.cs">
+      <DependentUpon>WishListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BasicSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BasicSlider.Designer.cs">
+      <DependentUpon>BasicSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BigCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BigCard.Designer.cs">
+      <DependentUpon>BigCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\ButtonComplex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\ButtonComplex.Designer.cs">
+      <DependentUpon>ButtonComplex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\ButtonItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\ButtonItem.Designer.cs">
+      <DependentUpon>ButtonItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\CartItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\CartItem.Designer.cs">
+      <DependentUpon>CartItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\FavListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\FavListItem.Designer.cs">
+      <DependentUpon>FavListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\MovieSliderObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\MovieSliderObject.Designer.cs">
+      <DependentUpon>MovieSliderObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevCircularPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevTextBox.Designer.cs">
+      <DependentUpon>DevTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\DevToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\MultiSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\MultiSelector.Designer.cs">
+      <DependentUpon>MultiSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BasicCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BasicCard.Designer.cs">
+      <DependentUpon>BasicCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\NewsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\NewsCard.Designer.cs">
+      <DependentUpon>NewsCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\NewsPresenter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\NewsPresenter.Designer.cs">
+      <DependentUpon>NewsPresenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\OrderItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\OrderItem.Designer.cs">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\PreviewFormPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\PreviewFormPicture.Designer.cs">
+      <DependentUpon>PreviewFormPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\RoundedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\SelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\SelectorForm.Designer.cs">
+      <DependentUpon>SelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\Slider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\Slider.Designer.cs">
+      <DependentUpon>Slider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BookSliderObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\BookSliderObject.Designer.cs">
+      <DependentUpon>BookSliderObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\SpecialSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\SpecialSlider.Designer.cs">
+      <DependentUpon>SpecialSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\SupriseMe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\SupriseMe.Designer.cs">
+      <DependentUpon>SupriseMe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\TransparentFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\TransparentLabelNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\TransparentPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\TransparentTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\WishListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\WishListItem.Designer.cs">
+      <DependentUpon>WishListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Design\DropShadowing\DropShadow.cs" />
+    <Compile Include="Infrastructure\Design\MessageBox\DevMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Design\MessageBox\DevMessageBox.Designer.cs">
+      <DependentUpon>DevMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Design\MessageBox\DevMsgBox.cs" />
+    <Compile Include="Infrastructure\Design\MessageBox\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Design\MessageBox\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Forms\PerPixelAlphaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Forms\PerPixelAlphaForm.Designer.cs">
+      <DependentUpon>PerPixelAlphaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Forms\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Forms\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Content\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminPanel\AuthorAdminForm.resx">
+      <DependentUpon>AuthorAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\ActorAdminForm.resx">
+      <DependentUpon>ActorAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\DirectorAdminForm.resx">
+      <DependentUpon>DirectorAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\MainMenuAdminForm.resx">
+      <DependentUpon>MainMenuAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\MovieAdminForm.resx">
+      <DependentUpon>MovieAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\BookAdminForm.resx">
+      <DependentUpon>BookAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\AccountAdminForm.resx">
+      <DependentUpon>AccountAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel\UtilsAdminForm.resx">
+      <DependentUpon>UtilsAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\AccountEditForm.resx">
+      <DependentUpon>AccountEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\AuthorForm.resx">
+      <DependentUpon>AuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\ActorForm.resx">
+      <DependentUpon>ActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\BookForm.resx">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\CartForm.resx">
+      <DependentUpon>CartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\CheckoutForm.resx">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\DirectorForm.resx">
+      <DependentUpon>DirectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\FavouriteForm.resx">
+      <DependentUpon>FavouriteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\MovieForm.resx">
+      <DependentUpon>MovieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\WishListForm.resx">
+      <DependentUpon>WishListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\BasicSlider.resx">
+      <DependentUpon>BasicSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\BigCard.resx">
+      <DependentUpon>BigCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\ButtonComplex.resx">
+      <DependentUpon>ButtonComplex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\ButtonItem.resx">
+      <DependentUpon>ButtonItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\CartItem.resx">
+      <DependentUpon>CartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\FavListItem.resx">
+      <DependentUpon>FavListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\MovieSliderObject.resx">
+      <DependentUpon>MovieSliderObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\DevTextBox.resx">
+      <DependentUpon>DevTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\MultiSelector.resx">
+      <DependentUpon>MultiSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\BasicCard.resx">
+      <DependentUpon>BasicCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\NewsCard.resx">
+      <DependentUpon>NewsCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\NewsPresenter.resx">
+      <DependentUpon>NewsPresenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\OrderItem.resx">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\PreviewFormPicture.resx">
+      <DependentUpon>PreviewFormPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\SelectorForm.resx">
+      <DependentUpon>SelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\Slider.resx">
+      <DependentUpon>Slider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\BookSliderObject.resx">
+      <DependentUpon>BookSliderObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\SpecialSlider.resx">
+      <DependentUpon>SpecialSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\SupriseMe.resx">
+      <DependentUpon>SupriseMe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\TransparentPanel.resx">
+      <DependentUpon>TransparentPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\WishListItem.resx">
+      <DependentUpon>WishListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\Design\MessageBox\DevMessageBox.resx">
+      <DependentUpon>DevMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\Design\MessageBox\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\Forms\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{B06EAE7C-E7F7-4CFC-96CE-245341F5E8A9}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{04c8181d-a11b-40e8-9ae8-0825718495a4}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\Design\Resources\chat.png" />
+    <Content Include="Infrastructure\Design\Resources\error.png" />
+    <Content Include="Infrastructure\Design\Resources\exclamation.png" />
+    <Content Include="Infrastructure\Design\Resources\information.png" />
+    <Content Include="Infrastructure\Design\Resources\question.png" />
+    <Content Include="Resources\book.png" />
+    <Content Include="Resources\Logo.ico" />
+    <Content Include="Resources\Logo.png" />
+    <Content Include="Resources\man.png" />
+    <Content Include="Resources\movie.png" />
+    <None Include="Resources\NewsPresenter.png" />
+    <None Include="Resources\Slider.png" />
+    <None Include="Resources\SpecialSlider.png" />
+    <None Include="Resources\SupriseMe.png" />
+    <Content Include="Resources\woman.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\calendarWhite.png" />
+    <None Include="Resources\calendarDark.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

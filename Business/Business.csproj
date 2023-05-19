@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B06EAE7C-E7F7-4CFC-96CE-245341F5E8A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Business</RootNamespace>
+    <AssemblyName>Business</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAccountService.cs" />
+    <Compile Include="Abstract\IActorService.cs" />
+    <Compile Include="Abstract\IAuthorService.cs" />
+    <Compile Include="Abstract\IBookFavListService.cs" />
+    <Compile Include="Abstract\IBookGenreListService.cs" />
+    <Compile Include="Abstract\IBookGenreService.cs" />
+    <Compile Include="Abstract\IBookService.cs" />
+    <Compile Include="Abstract\IBookWishListService.cs" />
+    <Compile Include="Abstract\IChartService.cs" />
+    <Compile Include="Abstract\IDirectorService.cs" />
+    <Compile Include="Abstract\ILanguageService.cs" />
+    <Compile Include="Abstract\IMenuContentService.cs" />
+    <Compile Include="Abstract\IMenuObjectService.cs" />
+    <Compile Include="Abstract\IMovieActorService.cs" />
+    <Compile Include="Abstract\IMovieFavListService.cs" />
+    <Compile Include="Abstract\IMovieGenreListService.cs" />
+    <Compile Include="Abstract\IMovieGenreService.cs" />
+    <Compile Include="Abstract\IMovieService.cs" />
+    <Compile Include="Abstract\IMovieWishListService.cs" />
+    <Compile Include="Abstract\IOperationClaimService.cs" />
+    <Compile Include="Abstract\IServiceRepository.cs" />
+    <Compile Include="Abstract\IUserOperationClaimService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Concrete\AccountManager.cs" />
+    <Compile Include="Concrete\ActorManager.cs" />
+    <Compile Include="Concrete\AuthorManager.cs" />
+    <Compile Include="Concrete\BookFavListManager.cs" />
+    <Compile Include="Concrete\BookGenreListManager.cs" />
+    <Compile Include="Concrete\BookGenreManager.cs" />
+    <Compile Include="Concrete\BookManager.cs" />
+    <Compile Include="Concrete\BookWishListManager.cs" />
+    <Compile Include="Concrete\CartManager.cs" />
+    <Compile Include="Concrete\DirectorManager.cs" />
+    <Compile Include="Concrete\LanguageManager.cs" />
+    <Compile Include="Concrete\ManagerBaseRepository.cs" />
+    <Compile Include="Concrete\MenuContentManager.cs" />
+    <Compile Include="Concrete\MenuObjectManager.cs" />
+    <Compile Include="Concrete\MovieActorManager.cs" />
+    <Compile Include="Concrete\MovieFavListManager.cs" />
+    <Compile Include="Concrete\MovieGenreListManager.cs" />
+    <Compile Include="Concrete\MovieGenreManager.cs" />
+    <Compile Include="Concrete\MovieManager.cs" />
+    <Compile Include="Concrete\MovieWishListManager.cs" />
+    <Compile Include="Concrete\OperationClaimManager.cs" />
+    <Compile Include="Concrete\UserManager.cs" />
+    <Compile Include="Concrete\UserOperationClaimManager.cs" />
+    <Compile Include="DependencyResolvers\BusinessModule.cs" />
+    <Compile Include="DependencyResolvers\InstanceFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{04c8181d-a11b-40e8-9ae8-0825718495a4}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
