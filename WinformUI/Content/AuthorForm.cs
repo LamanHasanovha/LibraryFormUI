@@ -6,6 +6,7 @@ using Entities.Concrete;
 using Entities.Constants;
 using Entities.Models.RequestModels;
 using System;
+using System.Linq;
 using System.Net.Http;
 using WinformUI.Infrastructure.CustomControls;
 using WinformUI.Infrastructure.Forms;
@@ -16,6 +17,7 @@ namespace WinformUI.Content
     {
         private readonly IAuthorService _authorService;
         private readonly IBookService _bookService;
+        private readonly IRatingService _ratingService;
 
         public AuthorForm()
         {
@@ -24,7 +26,10 @@ namespace WinformUI.Content
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _bookService = new BookManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
-
+            _ratingService = new RatingManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            rtcAuthor.SetRating = SetRating;
+            rtcAuthor.ReloadRating = ReloadRating;
         }
 
         private void AuthorForm_Load(object sender, EventArgs e)
@@ -64,6 +69,26 @@ namespace WinformUI.Content
                 card.Build(book);
                 basicSlider.Add(card);
             }
+
+            var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Author);
+            rtcAuthor.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+        }
+
+        private string ReloadRating()
+        {
+            var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Author);
+            return ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+        }
+
+        private void SetRating(int rating)
+        {
+            _ratingService.SaveRating(new Rating
+            {
+                AccountId = Account.Id,
+                RecordId = RecordId,
+                Type = RatingTypes.Author,
+                Value = rating
+            });
         }
 
     }

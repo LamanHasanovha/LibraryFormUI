@@ -49,6 +49,7 @@
             this.panelDivider2 = new System.Windows.Forms.Panel();
             this.panelReviews = new System.Windows.Forms.Panel();
             this.lblReviews = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.rtcMovie = new WinformUI.Infrastructure.CustomControls.RatingControl();
             this.panelMain.SuspendLayout();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
@@ -72,6 +73,7 @@
             // 
             // panelInfo
             // 
+            this.panelInfo.Controls.Add(this.rtcMovie);
             this.panelInfo.Controls.Add(this.lblGenres);
             this.panelInfo.Controls.Add(this.lblImdb);
             this.panelInfo.Controls.Add(this.btnAddCart);
@@ -95,7 +97,7 @@
             this.lblGenres.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblGenres.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblGenres.Location = new System.Drawing.Point(996, 482);
+            this.lblGenres.Location = new System.Drawing.Point(996, 580);
             this.lblGenres.Name = "lblGenres";
             this.lblGenres.Size = new System.Drawing.Size(447, 68);
             this.lblGenres.TabIndex = 82;
@@ -108,7 +110,7 @@
             this.lblImdb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblImdb.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImdb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblImdb.Location = new System.Drawing.Point(552, 482);
+            this.lblImdb.Location = new System.Drawing.Point(552, 580);
             this.lblImdb.Name = "lblImdb";
             this.lblImdb.Size = new System.Drawing.Size(199, 68);
             this.lblImdb.TabIndex = 81;
@@ -129,7 +131,7 @@
             this.btnAddCart.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnAddCart.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddCart.IconSize = 50;
-            this.btnAddCart.Location = new System.Drawing.Point(866, 641);
+            this.btnAddCart.Location = new System.Drawing.Point(866, 739);
             this.btnAddCart.Name = "btnAddCart";
             this.btnAddCart.Size = new System.Drawing.Size(99, 68);
             this.btnAddCart.TabIndex = 80;
@@ -149,7 +151,7 @@
             this.btnAddWishList.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnAddWishList.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddWishList.IconSize = 40;
-            this.btnAddWishList.Location = new System.Drawing.Point(709, 641);
+            this.btnAddWishList.Location = new System.Drawing.Point(709, 739);
             this.btnAddWishList.Name = "btnAddWishList";
             this.btnAddWishList.Size = new System.Drawing.Size(99, 68);
             this.btnAddWishList.TabIndex = 79;
@@ -169,7 +171,7 @@
             this.btnAddFavourites.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnAddFavourites.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddFavourites.IconSize = 60;
-            this.btnAddFavourites.Location = new System.Drawing.Point(552, 641);
+            this.btnAddFavourites.Location = new System.Drawing.Point(552, 739);
             this.btnAddFavourites.Name = "btnAddFavourites";
             this.btnAddFavourites.Size = new System.Drawing.Size(99, 68);
             this.btnAddFavourites.TabIndex = 78;
@@ -181,7 +183,7 @@
             this.lblPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPrice.Font = new System.Drawing.Font("Comic Sans MS", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.ForeColor = System.Drawing.Color.Red;
-            this.lblPrice.Location = new System.Drawing.Point(1264, 641);
+            this.lblPrice.Location = new System.Drawing.Point(1264, 739);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(179, 68);
             this.lblPrice.TabIndex = 77;
@@ -194,7 +196,7 @@
             this.lblActors.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblActors.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblActors.Location = new System.Drawing.Point(996, 556);
+            this.lblActors.Location = new System.Drawing.Point(996, 654);
             this.lblActors.Name = "lblActors";
             this.lblActors.Size = new System.Drawing.Size(447, 68);
             this.lblActors.TabIndex = 76;
@@ -207,7 +209,7 @@
             this.lblReleaseDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblReleaseDate.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReleaseDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblReleaseDate.Location = new System.Drawing.Point(757, 556);
+            this.lblReleaseDate.Location = new System.Drawing.Point(757, 654);
             this.lblReleaseDate.Name = "lblReleaseDate";
             this.lblReleaseDate.Size = new System.Drawing.Size(220, 68);
             this.lblReleaseDate.TabIndex = 75;
@@ -220,7 +222,7 @@
             this.lblTime.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTime.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblTime.Location = new System.Drawing.Point(552, 556);
+            this.lblTime.Location = new System.Drawing.Point(552, 654);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(199, 68);
             this.lblTime.TabIndex = 74;
@@ -233,7 +235,7 @@
             this.lblDirectorName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDirectorName.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDirectorName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblDirectorName.Location = new System.Drawing.Point(96, 641);
+            this.lblDirectorName.Location = new System.Drawing.Point(552, 165);
             this.lblDirectorName.Name = "lblDirectorName";
             this.lblDirectorName.Size = new System.Drawing.Size(414, 68);
             this.lblDirectorName.TabIndex = 73;
@@ -251,7 +253,7 @@
             this.tbxDescription.BorderSize = 2;
             this.tbxDescription.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.tbxDescription.Location = new System.Drawing.Point(552, 165);
+            this.tbxDescription.Location = new System.Drawing.Point(552, 263);
             this.tbxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
@@ -364,6 +366,19 @@
             this.lblReviews.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblReviews.TransparentBackColor = System.Drawing.Color.Black;
             // 
+            // rtcMovie
+            // 
+            this.rtcMovie.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtcMovie.Location = new System.Drawing.Point(96, 631);
+            this.rtcMovie.Name = "rtcMovie";
+            this.rtcMovie.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.rtcMovie.RatingReport = "5.6";
+            this.rtcMovie.ReloadRating = null;
+            this.rtcMovie.SetRating = null;
+            this.rtcMovie.Size = new System.Drawing.Size(414, 91);
+            this.rtcMovie.TabIndex = 83;
+            this.rtcMovie.Value = 0;
+            // 
             // MovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -405,5 +420,6 @@
         private Infrastructure.CustomControls.TransparentLabelNew lblReviews;
         private Infrastructure.CustomControls.TransparentLabel lblImdb;
         private Infrastructure.CustomControls.TransparentLabel lblGenres;
+        private Infrastructure.CustomControls.RatingControl rtcMovie;
     }
 }

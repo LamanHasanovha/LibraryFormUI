@@ -2,9 +2,11 @@
 using Business.Concrete;
 using Business.DependencyResolvers;
 using Core.WinFormUI.Infrastructure.Helpers;
+using Entities.Concrete;
 using Entities.Constants;
 using Entities.Models.RequestModels;
 using System;
+using System.Linq;
 using System.Net.Http;
 using WinformUI.Infrastructure.CustomControls;
 using WinformUI.Infrastructure.Forms;
@@ -15,6 +17,7 @@ namespace WinformUI.Content
     {
         private readonly IDirectorService _directorService;
         private readonly IMovieService _movieService;
+        private readonly IRatingService _ratingService;
 
         public DirectorForm()
         {
@@ -23,7 +26,10 @@ namespace WinformUI.Content
                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _movieService = new MovieManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                                 new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
-
+            _ratingService = new RatingManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            rtcDirector.SetRating = SetRating;
+            rtcDirector.ReloadRating = ReloadRating;
         }
 
         private void DirectorForm_Load(object sender, EventArgs e)
@@ -64,6 +70,25 @@ namespace WinformUI.Content
                 basicSlider.Add(card);
             }
 
+            var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Director);
+            rtcDirector.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+        }
+
+        private string ReloadRating()
+        {
+            var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Director);
+            return ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+        }
+
+        private void SetRating(int rating)
+        {
+            _ratingService.SaveRating(new Rating
+            {
+                AccountId = Account.Id,
+                RecordId = RecordId,
+                Type = RatingTypes.Director,
+                Value = rating
+            });
         }
     }
 }

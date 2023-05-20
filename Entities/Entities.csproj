@@ -63,11 +63,13 @@
     <Compile Include="Concrete\MovieGenreList.cs" />
     <Compile Include="Concrete\MovieWishList.cs" />
     <Compile Include="Concrete\OperationClaim.cs" />
+    <Compile Include="Concrete\Rating.cs" />
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Concrete\UserOperationClaim.cs" />
     <Compile Include="Constants\ContentTypes.cs" />
     <Compile Include="Constants\Gender.cs" />
     <Compile Include="Constants\ProductTypes.cs" />
+    <Compile Include="Constants\RatingTypes.cs" />
     <Compile Include="Models\RequestModels\AccountLoginModel.cs" />
     <Compile Include="Models\RequestModels\AccountRegisterModel.cs" />
     <Compile Include="Models\RequestModels\AccountUpdateInfoModel.cs" />

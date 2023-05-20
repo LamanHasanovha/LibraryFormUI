@@ -35,6 +35,7 @@
             this.pcbImage = new WinformUI.Infrastructure.CustomControls.TransparentPictureBox();
             this.lblFullName = new WinformUI.Infrastructure.CustomControls.TransparentLabel();
             this.basicSlider = new WinformUI.Infrastructure.CustomControls.BasicSlider();
+            this.rtcActor = new WinformUI.Infrastructure.CustomControls.RatingControl();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             this.lblBirthDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblBirthDate.Font = new System.Drawing.Font("Comic Sans MS", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBirthDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblBirthDate.Location = new System.Drawing.Point(718, 202);
+            this.lblBirthDate.Location = new System.Drawing.Point(718, 141);
             this.lblBirthDate.Name = "lblBirthDate";
             this.lblBirthDate.Size = new System.Drawing.Size(283, 68);
             this.lblBirthDate.TabIndex = 35;
@@ -56,7 +57,7 @@
             this.lblBorn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblBorn.Font = new System.Drawing.Font("Comic Sans MS", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBorn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblBorn.Location = new System.Drawing.Point(598, 202);
+            this.lblBorn.Location = new System.Drawing.Point(598, 141);
             this.lblBorn.Name = "lblBorn";
             this.lblBorn.Size = new System.Drawing.Size(114, 68);
             this.lblBorn.TabIndex = 34;
@@ -73,7 +74,7 @@
             this.tbxDescription.BorderSize = 2;
             this.tbxDescription.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.tbxDescription.Location = new System.Drawing.Point(597, 288);
+            this.tbxDescription.Location = new System.Drawing.Point(597, 227);
             this.tbxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
@@ -81,6 +82,7 @@
             this.tbxDescription.PasswordChar = false;
             this.tbxDescription.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxDescription.PlaceholderText = "";
+            this.tbxDescription.Readonly = false;
             this.tbxDescription.Size = new System.Drawing.Size(659, 346);
             this.tbxDescription.TabIndex = 33;
             this.tbxDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -91,7 +93,7 @@
             // 
             this.pcbImage.BackColor = System.Drawing.Color.Transparent;
             this.pcbImage.Image = ((System.Drawing.Image)(resources.GetObject("pcbImage.Image")));
-            this.pcbImage.Location = new System.Drawing.Point(149, 202);
+            this.pcbImage.Location = new System.Drawing.Point(149, 141);
             this.pcbImage.Name = "pcbImage";
             this.pcbImage.Size = new System.Drawing.Size(371, 432);
             this.pcbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -103,7 +105,7 @@
             this.lblFullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblFullName.Font = new System.Drawing.Font("Comic Sans MS", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblFullName.Location = new System.Drawing.Point(105, 62);
+            this.lblFullName.Location = new System.Drawing.Point(105, 1);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(474, 134);
             this.lblFullName.TabIndex = 31;
@@ -120,12 +122,26 @@
             this.basicSlider.Size = new System.Drawing.Size(1217, 346);
             this.basicSlider.TabIndex = 36;
             // 
+            // rtcActor
+            // 
+            this.rtcActor.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtcActor.Location = new System.Drawing.Point(149, 579);
+            this.rtcActor.Name = "rtcActor";
+            this.rtcActor.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.rtcActor.RatingReport = "5.6";
+            this.rtcActor.ReloadRating = null;
+            this.rtcActor.SetRating = null;
+            this.rtcActor.Size = new System.Drawing.Size(371, 91);
+            this.rtcActor.TabIndex = 37;
+            this.rtcActor.Value = 0;
+            // 
             // ActorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1382, 1055);
+            this.Controls.Add(this.rtcActor);
             this.Controls.Add(this.basicSlider);
             this.Controls.Add(this.lblBirthDate);
             this.Controls.Add(this.lblBorn);
@@ -150,5 +166,6 @@
         private Infrastructure.CustomControls.TransparentLabel lblBorn;
         private Infrastructure.CustomControls.TransparentLabel lblBirthDate;
         private Infrastructure.CustomControls.BasicSlider basicSlider;
+        private Infrastructure.CustomControls.RatingControl rtcActor;
     }
 }

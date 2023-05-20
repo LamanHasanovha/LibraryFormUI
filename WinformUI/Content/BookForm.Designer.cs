@@ -47,6 +47,7 @@
             this.panelDivider2 = new System.Windows.Forms.Panel();
             this.panelReviews = new System.Windows.Forms.Panel();
             this.lblReviews = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.rtcBook = new WinformUI.Infrastructure.CustomControls.RatingControl();
             this.panelMain.SuspendLayout();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
@@ -70,6 +71,7 @@
             // 
             // panelInfo
             // 
+            this.panelInfo.Controls.Add(this.rtcBook);
             this.panelInfo.Controls.Add(this.btnAddCart);
             this.panelInfo.Controls.Add(this.btnAddWishList);
             this.panelInfo.Controls.Add(this.btnAddFavourites);
@@ -99,7 +101,7 @@
             this.btnAddCart.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnAddCart.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddCart.IconSize = 50;
-            this.btnAddCart.Location = new System.Drawing.Point(866, 641);
+            this.btnAddCart.Location = new System.Drawing.Point(846, 734);
             this.btnAddCart.Name = "btnAddCart";
             this.btnAddCart.Size = new System.Drawing.Size(99, 68);
             this.btnAddCart.TabIndex = 80;
@@ -119,7 +121,7 @@
             this.btnAddWishList.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnAddWishList.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddWishList.IconSize = 40;
-            this.btnAddWishList.Location = new System.Drawing.Point(709, 641);
+            this.btnAddWishList.Location = new System.Drawing.Point(699, 734);
             this.btnAddWishList.Name = "btnAddWishList";
             this.btnAddWishList.Size = new System.Drawing.Size(99, 68);
             this.btnAddWishList.TabIndex = 79;
@@ -139,7 +141,7 @@
             this.btnAddFavourites.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnAddFavourites.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddFavourites.IconSize = 60;
-            this.btnAddFavourites.Location = new System.Drawing.Point(552, 641);
+            this.btnAddFavourites.Location = new System.Drawing.Point(552, 734);
             this.btnAddFavourites.Name = "btnAddFavourites";
             this.btnAddFavourites.Size = new System.Drawing.Size(99, 68);
             this.btnAddFavourites.TabIndex = 78;
@@ -151,7 +153,7 @@
             this.lblPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPrice.Font = new System.Drawing.Font("Comic Sans MS", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.ForeColor = System.Drawing.Color.Red;
-            this.lblPrice.Location = new System.Drawing.Point(1264, 641);
+            this.lblPrice.Location = new System.Drawing.Point(1264, 734);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(179, 68);
             this.lblPrice.TabIndex = 77;
@@ -164,7 +166,7 @@
             this.lblGenres.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblGenres.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblGenres.Location = new System.Drawing.Point(996, 556);
+            this.lblGenres.Location = new System.Drawing.Point(996, 649);
             this.lblGenres.Name = "lblGenres";
             this.lblGenres.Size = new System.Drawing.Size(447, 68);
             this.lblGenres.TabIndex = 76;
@@ -177,7 +179,7 @@
             this.lblLanguage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblLanguage.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLanguage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblLanguage.Location = new System.Drawing.Point(778, 556);
+            this.lblLanguage.Location = new System.Drawing.Point(778, 649);
             this.lblLanguage.Name = "lblLanguage";
             this.lblLanguage.Size = new System.Drawing.Size(199, 68);
             this.lblLanguage.TabIndex = 75;
@@ -190,7 +192,7 @@
             this.lblPage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPage.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblPage.Location = new System.Drawing.Point(552, 556);
+            this.lblPage.Location = new System.Drawing.Point(552, 649);
             this.lblPage.Name = "lblPage";
             this.lblPage.Size = new System.Drawing.Size(199, 68);
             this.lblPage.TabIndex = 74;
@@ -203,9 +205,9 @@
             this.lblAuthorName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAuthorName.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAuthorName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblAuthorName.Location = new System.Drawing.Point(96, 641);
+            this.lblAuthorName.Location = new System.Drawing.Point(552, 165);
             this.lblAuthorName.Name = "lblAuthorName";
-            this.lblAuthorName.Size = new System.Drawing.Size(414, 68);
+            this.lblAuthorName.Size = new System.Drawing.Size(461, 68);
             this.lblAuthorName.TabIndex = 73;
             this.lblAuthorName.TabStop = false;
             this.lblAuthorName.Text = "Author name";
@@ -221,7 +223,7 @@
             this.tbxDescription.BorderSize = 2;
             this.tbxDescription.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.tbxDescription.Location = new System.Drawing.Point(552, 165);
+            this.tbxDescription.Location = new System.Drawing.Point(552, 258);
             this.tbxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
@@ -334,6 +336,19 @@
             this.lblReviews.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblReviews.TransparentBackColor = System.Drawing.Color.Black;
             // 
+            // rtcBook
+            // 
+            this.rtcBook.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtcBook.Location = new System.Drawing.Point(96, 630);
+            this.rtcBook.Name = "rtcBook";
+            this.rtcBook.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.rtcBook.RatingReport = "5.6";
+            this.rtcBook.ReloadRating = null;
+            this.rtcBook.SetRating = null;
+            this.rtcBook.Size = new System.Drawing.Size(414, 91);
+            this.rtcBook.TabIndex = 81;
+            this.rtcBook.Value = 0;
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -374,5 +389,6 @@
         private System.Windows.Forms.Panel panelDivider2;
         private System.Windows.Forms.Panel panelReviews;
         private Infrastructure.CustomControls.TransparentLabelNew lblReviews;
+        private Infrastructure.CustomControls.RatingControl rtcBook;
     }
 }

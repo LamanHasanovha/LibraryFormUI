@@ -69,6 +69,7 @@
     <Compile Include="Abstract\IMovieService.cs" />
     <Compile Include="Abstract\IMovieWishListService.cs" />
     <Compile Include="Abstract\IOperationClaimService.cs" />
+    <Compile Include="Abstract\IRatingService.cs" />
     <Compile Include="Abstract\IServiceRepository.cs" />
     <Compile Include="Abstract\IUserOperationClaimService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Concrete\MovieManager.cs" />
     <Compile Include="Concrete\MovieWishListManager.cs" />
     <Compile Include="Concrete\OperationClaimManager.cs" />
+    <Compile Include="Concrete\RatingManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Concrete\UserOperationClaimManager.cs" />
     <Compile Include="DependencyResolvers\BusinessModule.cs" />

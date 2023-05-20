@@ -68,12 +68,13 @@ namespace WinformUI.Infrastructure.Forms
             //basicSlider1.Add(new BasicCard { TitleText = "Title6"});
             //basicSlider1.Add(new BasicCard { TitleText = "Title7"});
             //basicSlider1.Add(new BasicCard { TitleText = "Title8"});
+
+            ratingControl1.RatingReport = "5.6\n1000";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label2.Text = tbxCardNumber.Text.Trim();
-            label1.Text = tbxCardNumber.Text.Trim().Length.ToString();
+
         }
     }
 }

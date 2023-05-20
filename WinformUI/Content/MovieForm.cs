@@ -2,6 +2,8 @@
 using Business.Concrete;
 using Business.DependencyResolvers;
 using Core.WinFormUI.Infrastructure.Helpers;
+using Entities.Concrete;
+using Entities.Constants;
 using Entities.Models.RequestModels;
 using System;
 using System.Globalization;
@@ -14,18 +16,22 @@ namespace WinformUI.Content
     public partial class MovieForm : BaseForm
     {
         private readonly IMovieService _movieService;
+        private readonly IRatingService _ratingService;
 
         public MovieForm()
         {
             InitializeComponent();
             _movieService = new MovieManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
-
+            _ratingService = new RatingManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                  new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            rtcMovie.SetRating = SetRating;
+            rtcMovie.ReloadRating = ReloadRating;
         }
 
         private void MovieForm_Load(object sender, System.EventArgs e)
         {
-            //Build();
+            Build();
         }
 
         private void Build()
@@ -53,6 +59,9 @@ namespace WinformUI.Content
 
             LoadSimilars();
             LoadReviews();
+
+            var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Movie);
+            rtcMovie.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
         }
 
 
@@ -65,5 +74,23 @@ namespace WinformUI.Content
         {
 
         }
+
+        private string ReloadRating()
+        {
+            var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Movie);
+            return ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+        }
+
+        private void SetRating(int rating)
+        {
+            _ratingService.SaveRating(new Rating
+            {
+                AccountId = Account.Id,
+                RecordId = RecordId,
+                Type = RatingTypes.Movie,
+                Value = rating
+            });
+        }
+
     }
 }

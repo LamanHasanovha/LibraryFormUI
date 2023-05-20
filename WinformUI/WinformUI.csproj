@@ -312,6 +312,12 @@
     <Compile Include="Infrastructure\CustomControls\PreviewFormPicture.Designer.cs">
       <DependentUpon>PreviewFormPicture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CustomControls\RatingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\RatingControl.Designer.cs">
+      <DependentUpon>RatingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\CustomControls\RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     </Compile>
     <Compile Include="Infrastructure\CustomControls\SpecialSlider.Designer.cs">
       <DependentUpon>SpecialSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\StarRatingControl.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Infrastructure\CustomControls\SupriseMe.cs">
       <SubType>UserControl</SubType>
@@ -521,6 +530,9 @@
     <EmbeddedResource Include="Infrastructure\CustomControls\PreviewFormPicture.resx">
       <DependentUpon>PreviewFormPicture.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\RatingControl.resx">
+      <DependentUpon>RatingControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\CustomControls\SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -590,6 +602,24 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <COMReference Include="Microsoft.Vbe.Interop.Forms">
+      <Guid>{0D452EE1-E08F-101A-852E-02608C4D0BB4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="WMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -616,7 +646,9 @@
     <Content Include="Infrastructure\Design\Resources\exclamation.png" />
     <Content Include="Infrastructure\Design\Resources\information.png" />
     <Content Include="Infrastructure\Design\Resources\question.png" />
+    <None Include="Resources\animatedStar.gif" />
     <Content Include="Resources\book.png" />
+    <None Include="Resources\emptyStar.png" />
     <Content Include="Resources\Logo.ico" />
     <Content Include="Resources\Logo.png" />
     <Content Include="Resources\man.png" />
@@ -625,6 +657,7 @@
     <None Include="Resources\Slider.png" />
     <None Include="Resources\SpecialSlider.png" />
     <None Include="Resources\SupriseMe.png" />
+    <None Include="Resources\star.png" />
     <Content Include="Resources\woman.png" />
     <None Include="Resources\question.png" />
     <None Include="Resources\information.png" />
