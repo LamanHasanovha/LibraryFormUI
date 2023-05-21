@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieForm));
             this.panelMain = new System.Windows.Forms.FlowLayoutPanel();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.rtcMovie = new WinformUI.Infrastructure.CustomControls.RatingControl();
             this.lblGenres = new WinformUI.Infrastructure.CustomControls.TransparentLabel();
             this.lblImdb = new WinformUI.Infrastructure.CustomControls.TransparentLabel();
             this.btnAddCart = new FontAwesome.Sharp.IconButton();
@@ -49,7 +50,6 @@
             this.panelDivider2 = new System.Windows.Forms.Panel();
             this.panelReviews = new System.Windows.Forms.Panel();
             this.lblReviews = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.rtcMovie = new WinformUI.Infrastructure.CustomControls.RatingControl();
             this.panelMain.SuspendLayout();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
@@ -91,6 +91,19 @@
             this.panelInfo.Name = "panelInfo";
             this.panelInfo.Size = new System.Drawing.Size(1538, 834);
             this.panelInfo.TabIndex = 73;
+            // 
+            // rtcMovie
+            // 
+            this.rtcMovie.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtcMovie.Location = new System.Drawing.Point(96, 631);
+            this.rtcMovie.Name = "rtcMovie";
+            this.rtcMovie.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.rtcMovie.RatingReport = "5.6";
+            this.rtcMovie.ReloadRating = null;
+            this.rtcMovie.SetRating = null;
+            this.rtcMovie.Size = new System.Drawing.Size(414, 91);
+            this.rtcMovie.TabIndex = 83;
+            this.rtcMovie.Value = 0;
             // 
             // lblGenres
             // 
@@ -360,24 +373,11 @@
             this.lblReviews.Location = new System.Drawing.Point(0, 0);
             this.lblReviews.Name = "lblReviews";
             this.lblReviews.Opacity = 0;
-            this.lblReviews.Size = new System.Drawing.Size(1530, 105);
+            this.lblReviews.Size = new System.Drawing.Size(1530, 100);
             this.lblReviews.TabIndex = 0;
             this.lblReviews.Text = "Reviews :                                                              ";
             this.lblReviews.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblReviews.TransparentBackColor = System.Drawing.Color.Black;
-            // 
-            // rtcMovie
-            // 
-            this.rtcMovie.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtcMovie.Location = new System.Drawing.Point(96, 631);
-            this.rtcMovie.Name = "rtcMovie";
-            this.rtcMovie.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.rtcMovie.RatingReport = "5.6";
-            this.rtcMovie.ReloadRating = null;
-            this.rtcMovie.SetRating = null;
-            this.rtcMovie.Size = new System.Drawing.Size(414, 91);
-            this.rtcMovie.TabIndex = 83;
-            this.rtcMovie.Value = 0;
             // 
             // MovieForm
             // 

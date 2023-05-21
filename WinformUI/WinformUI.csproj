@@ -240,6 +240,9 @@
     <Compile Include="Infrastructure\CustomControls\FavListItem.Designer.cs">
       <DependentUpon>FavListItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CustomControls\GrowLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Infrastructure\CustomControls\MovieSliderObject.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -318,6 +321,12 @@
     <Compile Include="Infrastructure\CustomControls\RatingControl.Designer.cs">
       <DependentUpon>RatingControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CustomControls\Review.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\Review.Designer.cs">
+      <DependentUpon>Review.cs</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\CustomControls\RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -379,6 +388,7 @@
       <DependentUpon>WishListItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Design\DropShadowing\DropShadow.cs" />
+    <Compile Include="Infrastructure\Design\GraphicsExtension.cs" />
     <Compile Include="Infrastructure\Design\MessageBox\DevMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -532,6 +542,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\CustomControls\RatingControl.resx">
       <DependentUpon>RatingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\Review.resx">
+      <DependentUpon>Review.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\CustomControls\SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>

@@ -64,6 +64,7 @@
     <Compile Include="Concrete\MovieWishList.cs" />
     <Compile Include="Concrete\OperationClaim.cs" />
     <Compile Include="Concrete\Rating.cs" />
+    <Compile Include="Concrete\Review.cs" />
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Concrete\UserOperationClaim.cs" />
     <Compile Include="Constants\ContentTypes.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Models\ResponseModels\BookResponseModel.cs" />
     <Compile Include="Models\ResponseModels\CartResponseModel.cs" />
     <Compile Include="Models\ResponseModels\MovieResponseModel.cs" />
+    <Compile Include="Models\ResponseModels\ReviewResponseModel.cs" />
     <Compile Include="Models\ResponseModels\UserLoginResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

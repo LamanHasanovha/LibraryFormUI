@@ -31,6 +31,14 @@ namespace Business.DependencyResolvers
             Bind<IMovieActorService>().To<MovieActorManager>().InSingletonScope();
             Bind<IMovieGenreListService>().To<MovieGenreListManager>().InSingletonScope();
             Bind<IBookGenreListService>().To<BookGenreListManager>().InSingletonScope();
+            Bind<IDirectorService>().To<DirectorManager>().InSingletonScope();
+            Bind<IAuthorService>().To<AuthorManager>().InSingletonScope();
+            Bind<IActorService>().To<ActorManager>().InSingletonScope();
+            Bind<IMovieActorService>().To<MovieActorManager>().InSingletonScope();
+            Bind<IMenuContentService>().To<MenuContentManager>().InSingletonScope();
+            Bind<IMenuObjectService>().To<MenuObjectManager>().InSingletonScope();
+            Bind<IRatingService>().To<RatingManager>().InSingletonScope();
+            Bind<IReviewService>().To<ReviewManager>().InSingletonScope();
         }
     }
 }

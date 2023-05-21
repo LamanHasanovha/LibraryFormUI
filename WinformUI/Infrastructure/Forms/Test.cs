@@ -69,7 +69,10 @@ namespace WinformUI.Infrastructure.Forms
             //basicSlider1.Add(new BasicCard { TitleText = "Title7"});
             //basicSlider1.Add(new BasicCard { TitleText = "Title8"});
 
-            ratingControl1.RatingReport = "5.6\n1000";
+            //ratingControl1.RatingReport = "5.6\n1000";
+            //reviewItem4.Build("User review review review review \n review \n \n review \n \n \n review", "Laman", "08.03.2023");
+            //reviewItem5.Build("User review \n\n review", "Asim", "07.09.2023");
+            //reviewItem6.Build("user review \n\n\n review \n\n review", "Laman", "22.07.2023");
         }
 
         private void timer1_Tick(object sender, EventArgs e)

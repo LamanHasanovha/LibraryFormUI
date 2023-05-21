@@ -9,6 +9,8 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
+using System.Windows.Forms;
+using WinformUI.Infrastructure.CustomControls;
 using WinformUI.Infrastructure.Forms;
 
 namespace WinformUI.Content
@@ -17,6 +19,7 @@ namespace WinformUI.Content
     {
         private readonly IBookService _bookService;
         private readonly IRatingService _ratingService;
+        private readonly IReviewService _reviewService;
 
         public BookForm()
         {
@@ -25,6 +28,9 @@ namespace WinformUI.Content
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _ratingService = new RatingManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                    new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _reviewService = new ReviewManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                  new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            
             rtcBook.SetRating = SetRating;
             rtcBook.ReloadRating = ReloadRating;
         }
@@ -69,7 +75,19 @@ namespace WinformUI.Content
 
         private void LoadReviews()
         {
+            var reviews = _reviewService.GetByType(RecordId, RatingTypes.Book);
 
+            foreach (var review in reviews)
+            {
+                var item = new ReviewItem();
+                item.UsernameText = review.Username;
+                item.DateText = review.Date.ToString("dd.MM.yyyy");
+                item.ReviewText = review.Text;
+                item.Dock = DockStyle.Top;
+                item.Margin = new Padding(3, 10, 3, 20);
+
+                panelReviews.Controls.Add(item);
+            }
         }
 
         private string ReloadRating()
