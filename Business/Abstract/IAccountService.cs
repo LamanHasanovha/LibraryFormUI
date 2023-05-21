@@ -9,5 +9,6 @@ namespace Business.Abstract
         Account Register(AccountRegisterModel model);
         Account UpdateWithPassword(AccountUpdateModel model);
         Account UpdateInfo(AccountUpdateInfoModel model);
+        bool CheckPass(string username, string password);
     }
 }

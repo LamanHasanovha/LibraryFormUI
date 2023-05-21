@@ -156,6 +156,12 @@
     <Compile Include="Content\CartForm.Designer.cs">
       <DependentUpon>CartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Content\ChangeEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\ChangeEmailForm.Designer.cs">
+      <DependentUpon>ChangeEmailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Content\CheckoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,12 @@
     </Compile>
     <Compile Include="Content\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\SignUpConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\SignUpConfirmForm.Designer.cs">
+      <DependentUpon>SignUpConfirmForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Content\WishListForm.cs">
       <SubType>Form</SubType>
@@ -474,6 +486,9 @@
     <EmbeddedResource Include="Content\CartForm.resx">
       <DependentUpon>CartForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Content\ChangeEmailForm.resx">
+      <DependentUpon>ChangeEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Content\CheckoutForm.resx">
       <DependentUpon>CheckoutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,6 +509,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Content\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\SignUpConfirmForm.resx">
+      <DependentUpon>SignUpConfirmForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Content\WishListForm.resx">
       <DependentUpon>WishListForm.cs</DependentUpon>

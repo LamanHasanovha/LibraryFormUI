@@ -40,10 +40,11 @@
             this.tbxFirstName = new WinformUI.Infrastructure.CustomControls.DevTextBox();
             this.tbxLastName = new WinformUI.Infrastructure.CustomControls.DevTextBox();
             this.tbxUserName = new WinformUI.Infrastructure.CustomControls.DevTextBox();
-            this.tbxEmail = new WinformUI.Infrastructure.CustomControls.DevTextBox();
             this.tbxPassword = new WinformUI.Infrastructure.CustomControls.DevTextBox();
             this.btnPass = new FontAwesome.Sharp.IconButton();
             this.btnBack = new FontAwesome.Sharp.IconButton();
+            this.lblEmailValue = new WinformUI.Infrastructure.CustomControls.TransparentLabel();
+            this.btnChangeEmail = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,7 +177,8 @@
             this.tbxFirstName.PasswordChar = false;
             this.tbxFirstName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxFirstName.PlaceholderText = "";
-            this.tbxFirstName.Size = new System.Drawing.Size(307, 62);
+            this.tbxFirstName.Readonly = false;
+            this.tbxFirstName.Size = new System.Drawing.Size(379, 62);
             this.tbxFirstName.TabIndex = 49;
             this.tbxFirstName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxFirstName.Texts = "";
@@ -200,7 +202,8 @@
             this.tbxLastName.PasswordChar = false;
             this.tbxLastName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxLastName.PlaceholderText = "";
-            this.tbxLastName.Size = new System.Drawing.Size(307, 62);
+            this.tbxLastName.Readonly = false;
+            this.tbxLastName.Size = new System.Drawing.Size(379, 62);
             this.tbxLastName.TabIndex = 50;
             this.tbxLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxLastName.Texts = "";
@@ -224,35 +227,12 @@
             this.tbxUserName.PasswordChar = false;
             this.tbxUserName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxUserName.PlaceholderText = "";
-            this.tbxUserName.Size = new System.Drawing.Size(307, 62);
+            this.tbxUserName.Readonly = false;
+            this.tbxUserName.Size = new System.Drawing.Size(379, 62);
             this.tbxUserName.TabIndex = 51;
             this.tbxUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxUserName.Texts = "";
             this.tbxUserName.UnderlinedStyle = false;
-            // 
-            // tbxEmail
-            // 
-            this.tbxEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbxEmail.BackColor = System.Drawing.SystemColors.Control;
-            this.tbxEmail.BorderColor = System.Drawing.Color.Blue;
-            this.tbxEmail.BorderFocusColor = System.Drawing.Color.Crimson;
-            this.tbxEmail.BorderRadius = 0;
-            this.tbxEmail.BorderSize = 2;
-            this.tbxEmail.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.tbxEmail.Location = new System.Drawing.Point(752, 576);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxEmail.Multiline = false;
-            this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbxEmail.PasswordChar = false;
-            this.tbxEmail.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbxEmail.PlaceholderText = "";
-            this.tbxEmail.Size = new System.Drawing.Size(307, 62);
-            this.tbxEmail.TabIndex = 52;
-            this.tbxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbxEmail.Texts = "";
-            this.tbxEmail.UnderlinedStyle = false;
             // 
             // tbxPassword
             // 
@@ -272,7 +252,8 @@
             this.tbxPassword.PasswordChar = true;
             this.tbxPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxPassword.PlaceholderText = "";
-            this.tbxPassword.Size = new System.Drawing.Size(307, 62);
+            this.tbxPassword.Readonly = false;
+            this.tbxPassword.Size = new System.Drawing.Size(379, 62);
             this.tbxPassword.TabIndex = 53;
             this.tbxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxPassword.Texts = "";
@@ -291,7 +272,7 @@
             this.btnPass.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnPass.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPass.IconSize = 40;
-            this.btnPass.Location = new System.Drawing.Point(1080, 670);
+            this.btnPass.Location = new System.Drawing.Point(1161, 670);
             this.btnPass.Name = "btnPass";
             this.btnPass.Size = new System.Drawing.Size(51, 45);
             this.btnPass.TabIndex = 54;
@@ -321,15 +302,50 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // lblEmailValue
+            // 
+            this.lblEmailValue.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblEmailValue.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmailValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblEmailValue.Location = new System.Drawing.Point(752, 576);
+            this.lblEmailValue.Name = "lblEmailValue";
+            this.lblEmailValue.Size = new System.Drawing.Size(379, 62);
+            this.lblEmailValue.TabIndex = 56;
+            this.lblEmailValue.TabStop = false;
+            this.lblEmailValue.Text = "Email";
+            this.lblEmailValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnChangeEmail
+            // 
+            this.btnChangeEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnChangeEmail.BackColor = System.Drawing.SystemColors.Control;
+            this.btnChangeEmail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeEmail.FlatAppearance.BorderSize = 0;
+            this.btnChangeEmail.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChangeEmail.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.btnChangeEmail.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.btnChangeEmail.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.btnChangeEmail.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnChangeEmail.IconSize = 40;
+            this.btnChangeEmail.Location = new System.Drawing.Point(1161, 584);
+            this.btnChangeEmail.Name = "btnChangeEmail";
+            this.btnChangeEmail.Size = new System.Drawing.Size(51, 45);
+            this.btnChangeEmail.TabIndex = 57;
+            this.btnChangeEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnChangeEmail.UseVisualStyleBackColor = false;
+            this.btnChangeEmail.Click += new System.EventHandler(this.btnChangeEmail_Click);
+            // 
             // AccountEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1422, 840);
+            this.Controls.Add(this.btnChangeEmail);
+            this.Controls.Add(this.lblEmailValue);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnPass);
             this.Controls.Add(this.tbxPassword);
-            this.Controls.Add(this.tbxEmail);
             this.Controls.Add(this.tbxUserName);
             this.Controls.Add(this.tbxLastName);
             this.Controls.Add(this.tbxFirstName);
@@ -364,9 +380,10 @@
         private Infrastructure.CustomControls.DevTextBox tbxFirstName;
         private Infrastructure.CustomControls.DevTextBox tbxLastName;
         private Infrastructure.CustomControls.DevTextBox tbxUserName;
-        private Infrastructure.CustomControls.DevTextBox tbxEmail;
         private Infrastructure.CustomControls.DevTextBox tbxPassword;
         private FontAwesome.Sharp.IconButton btnPass;
         private FontAwesome.Sharp.IconButton btnBack;
+        private Infrastructure.CustomControls.TransparentLabel lblEmailValue;
+        private FontAwesome.Sharp.IconButton btnChangeEmail;
     }
 }

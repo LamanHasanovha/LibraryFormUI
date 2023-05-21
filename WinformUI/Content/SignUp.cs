@@ -9,6 +9,7 @@ using System;
 using System.Drawing;
 using System.Net.Http;
 using System.Windows.Forms;
+using WinformUI.Content;
 using WinformUI.Infrastructure.Forms;
 
 namespace WinformUI.Application
@@ -16,6 +17,7 @@ namespace WinformUI.Application
     public partial class SignUp : BaseForm
     {
         private readonly IAccountService _accountService;
+        private readonly IAuthCodeService _authCodeService;
 
         public SignUp()
         {
@@ -27,6 +29,9 @@ namespace WinformUI.Application
                                                        Email = ConfigurationHelper.GetAppSetting("Email"),
                                                        Password = ConfigurationHelper.GetAppSetting("Password")
                                                    });
+            _authCodeService = new AuthCodeManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+
         }
 
         private void SignUp_Load(object sender, EventArgs e)
@@ -45,25 +50,43 @@ namespace WinformUI.Application
         {
             try
             {
-                var account = _accountService.Register(new AccountRegisterModel
+                _authCodeService.SendAuthCode(0);
+                DevMsgBox.Show("Auth code has been sent your email.", "System");
+
+                var form = new SignUpConfirmForm();
+                Account = new Account
                 {
-                    Email = tbxEmail.Texts.Trim(),
                     FirstName = tbxFirstName.Texts.Trim(),
                     LastName = tbxLastName.Texts.Trim(),
-                    Password = tbxPassword.Texts.Trim(),
-                    Username = tbxUserName.Texts.Trim()
+                    Username = tbxUserName.Texts.Trim(),
+                    Email = tbxEmail.Texts.Trim()
+                };
+                form.Account = Account;
+                form.ShowDialog();
+
+                var account = _accountService.Register(new AccountRegisterModel
+                {
+                    Email = Account.Email,
+                    FirstName = Account.FirstName,
+                    LastName = Account.LastName,
+                    Username = Account.Username,
+                    Password = tbxPassword.Texts.Trim()
                 });
+
+                Account = account;
+
+                DevMsgBox.Show("Registered successfully.", "System");
+
+                this.Hide();
+                var login = new Login();
+                login.tbxUserName.Texts = Account.Username;
+                login.ShowDialog();
             }
             catch (Exception ex)
             {
                 lblErrors.Text = ex.Message;
                 return;
             }
-            
-            this.Hide();
-            var form = new Login();
-            form.tbxUserName.Texts = tbxUserName.Texts.Trim();
-            form.ShowDialog();
         }
 
         private void lblSignUp_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)

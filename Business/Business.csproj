@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IAccountService.cs" />
     <Compile Include="Abstract\IActorService.cs" />
+    <Compile Include="Abstract\IAuthCodeService.cs" />
     <Compile Include="Abstract\IAuthorService.cs" />
     <Compile Include="Abstract\IBookFavListService.cs" />
     <Compile Include="Abstract\IBookGenreListService.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Concrete\AccountManager.cs" />
     <Compile Include="Concrete\ActorManager.cs" />
+    <Compile Include="Concrete\AuthCodeManager.cs" />
     <Compile Include="Concrete\AuthorManager.cs" />
     <Compile Include="Concrete\BookFavListManager.cs" />
     <Compile Include="Concrete\BookGenreListManager.cs" />

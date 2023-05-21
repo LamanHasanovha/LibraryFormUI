@@ -30,7 +30,7 @@ namespace WinformUI.Content
         {
             tbxFirstName.Texts = Account?.FirstName;
             tbxLastName.Texts = Account?.LastName;
-            tbxEmail.Texts = Account?.Email;
+            lblEmailValue.Text = Account?.Email;
             tbxUserName.Texts = Account?.Username;
         }
 
@@ -49,7 +49,7 @@ namespace WinformUI.Content
             if (result != DialogResult.Yes)
                 return;
 
-            if (tbxFirstName.Texts.Trim() == "" | tbxLastName.Texts.Trim() == "" | tbxUserName.Texts.Trim() == "" | tbxEmail.Texts.Trim() == "")
+            if (tbxFirstName.Texts.Trim() == "" | tbxLastName.Texts.Trim() == "" | tbxUserName.Texts.Trim() == "")
             {
                 DevMsgBox.Show("Please, fill all the required gaps.", "System");
                 return;
@@ -68,7 +68,6 @@ namespace WinformUI.Content
                     Id = Account.Id,
                     FirstName = tbxFirstName.Texts.Trim(),
                     LastName = tbxLastName.Texts.Trim(),
-                    Email = tbxEmail.Texts.Trim(),
                     Status = true,
                     Password = tbxPassword.Texts.Trim(),
                     Username = tbxUserName.Texts.Trim()
@@ -82,7 +81,6 @@ namespace WinformUI.Content
             {
                 Id = Account.Id,
                 FirstName = tbxFirstName.Texts.Trim(),
-                Email = tbxEmail.Texts.Trim(),
                 UserName= tbxUserName.Texts.Trim(),
                 LastName= tbxLastName.Texts.Trim()
             });
@@ -94,6 +92,13 @@ namespace WinformUI.Content
         private void btnBack_Click(object sender, EventArgs e)
         {
             OpenFormEvent?.Invoke(new AccountForm { Account = Account, OpenFormEvent = OpenFormEvent}, false);
+        }
+
+        private void btnChangeEmail_Click(object sender, EventArgs e)
+        {
+            var form = new ChangeEmailForm();
+            form.Account = Account;
+            form.ShowDialog();
         }
     }
 }

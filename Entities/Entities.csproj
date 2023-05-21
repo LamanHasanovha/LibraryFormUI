@@ -45,6 +45,7 @@
     <Compile Include="Abstract\IModel.cs" />
     <Compile Include="Concrete\Account.cs" />
     <Compile Include="Concrete\Actor.cs" />
+    <Compile Include="Concrete\AuthCode.cs" />
     <Compile Include="Concrete\Author.cs" />
     <Compile Include="Concrete\BookFavList.cs" />
     <Compile Include="Concrete\BookGenre.cs" />

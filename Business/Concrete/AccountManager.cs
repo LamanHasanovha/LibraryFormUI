@@ -14,6 +14,23 @@ namespace Business.Concrete
         {
         }
 
+        public bool CheckPass(string username, string password)
+        {
+            TokenCheck();
+            var response = Client.GetAsync(Endpoint + @"/checkpass?username=" + username + @"&password=" + password).Result;
+            var data = response.Content.ReadAsStringAsync().Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var temp = JsonConvert.DeserializeObject<ProblemDetails>(data);
+                throw new Exception(temp.Title + " : " + temp.Status + "\n" + temp.Detail);
+            }
+
+            var result = JsonConvert.DeserializeObject<bool>(data);
+
+            return result;
+        }
+
         public Account Login(AccountLoginModel model)
         {
             TokenCheck();

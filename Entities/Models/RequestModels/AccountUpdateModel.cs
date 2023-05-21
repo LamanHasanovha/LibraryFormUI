@@ -6,13 +6,12 @@ namespace Entities.Models.RequestModels
     {
         public AccountUpdateModel() { }
 
-        public AccountUpdateModel(int id, string firstName, string lastName, string username, string email, string password, bool status)
+        public AccountUpdateModel(int id, string firstName, string lastName, string username, string password, bool status)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
             Username = username;
-            Email = email;
             Password = password;
             Status = status;
         }
@@ -21,7 +20,6 @@ namespace Entities.Models.RequestModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
-        public string Email { get; set; }
         public string Password { get; set; }
         public bool Status { get; set; }
     }
