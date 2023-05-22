@@ -68,6 +68,7 @@ namespace WinformUI.Content
                     Id = Account.Id,
                     FirstName = tbxFirstName.Texts.Trim(),
                     LastName = tbxLastName.Texts.Trim(),
+                    Email = lblEmailValue.Text,
                     Status = true,
                     Password = tbxPassword.Texts.Trim(),
                     Username = tbxUserName.Texts.Trim()

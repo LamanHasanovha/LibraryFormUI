@@ -39,6 +39,15 @@
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-ShellExtensions.1.1.1\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -342,6 +351,12 @@
     <Compile Include="Infrastructure\CustomControls\RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Infrastructure\CustomControls\SearchDropdownPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\CustomControls\SearchDropdownPanel.Designer.cs">
+      <DependentUpon>SearchDropdownPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\CustomControls\SelectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -563,6 +578,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\CustomControls\Review.resx">
       <DependentUpon>Review.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\CustomControls\SearchDropdownPanel.resx">
+      <DependentUpon>SearchDropdownPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\CustomControls\SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>

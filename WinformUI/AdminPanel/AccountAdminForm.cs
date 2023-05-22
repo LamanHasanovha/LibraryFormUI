@@ -104,7 +104,7 @@ namespace WinformUI.AdminPanel
                         Id = account.Id,
                         FirstName = tbxFirstname.Texts.Trim(),
                         LastName = tbxLastname.Texts.Trim(),
-                        Email = tbxEmail.Texts.Trim(),
+                        Email = account.Email,
                         Password = tbxPassword.Texts.Trim(),
                         Status = chkStatus.Checked,
                         Username = tbxUsername.Texts.Trim()

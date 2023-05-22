@@ -50,6 +50,7 @@
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.timerTest = new System.Windows.Forms.Timer(this.components);
+            this.panelSearch = new WinformUI.Infrastructure.CustomControls.SearchDropdownPanel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
@@ -325,6 +326,7 @@
             this.tbxSearch.PasswordChar = false;
             this.tbxSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxSearch.PlaceholderText = "";
+            this.tbxSearch.Readonly = false;
             this.tbxSearch.Size = new System.Drawing.Size(345, 42);
             this.tbxSearch.TabIndex = 4;
             this.tbxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -393,6 +395,16 @@
             this.timerTest.Interval = 10;
             this.timerTest.Tick += new System.EventHandler(this.timerTest_Tick);
             // 
+            // panelSearch
+            // 
+            this.panelSearch.BackColor = System.Drawing.Color.Transparent;
+            this.panelSearch.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelSearch.Location = new System.Drawing.Point(226, 87);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Padding = new System.Windows.Forms.Padding(20, 50, 20, 20);
+            this.panelSearch.Size = new System.Drawing.Size(640, 640);
+            this.panelSearch.TabIndex = 0;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -401,6 +413,7 @@
             this.ClientSize = new System.Drawing.Size(1277, 732);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelSearch);
             this.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(760, 613);
@@ -440,5 +453,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Timer timerTest;
+        private Infrastructure.CustomControls.SearchDropdownPanel panelSearch;
     }
 }

@@ -52,7 +52,7 @@ namespace WinformUI.Content
         private void MainMenu_Load(object sender, EventArgs e)
         {
             formSize = this.ClientSize;
-            LoadHomePage();
+            //LoadHomePage();
         }
 
         private void OpenChildForm(BaseForm childForm, IconButton sender)
@@ -247,6 +247,7 @@ namespace WinformUI.Content
         private void MainMenu_Resize(object sender, EventArgs e)
         {
             AdjustForm();
+            panelSearch.Location = new Point(btnSearch.Location.X + btnSearch.Width + 5, btnSearch.Location.Y + btnSearch.Height + 5);
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -676,7 +677,9 @@ namespace WinformUI.Content
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            panelSearch.Location = new Point(btnSearch.Location.X + btnSearch.Width + 5, btnSearch.Location.Y + btnSearch.Height + 5);
+            panelSearch.BackColor = Color.FromKnownColor(KnownColor.Control);
+            panelSearch.BringToFront();
         }
 
         private void timerTest_Tick(object sender, EventArgs e)
