@@ -10,5 +10,6 @@ namespace Business.Abstract
         List<Book> GetByAuthor(int authorId);
         BookResponseModel GetRandomBook();
         BookResponseModel GetBookById(int bookId);
+        string GetMaxMinValues();
     }
 }

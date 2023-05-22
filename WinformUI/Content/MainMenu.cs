@@ -25,13 +25,20 @@ namespace WinformUI.Content
         private Size formSize;
         private BaseForm _activeForm;
         private IconButton _currentButton;
+        private SearchDropDownForm _searchDropDownForm;
 
         private readonly IMenuContentService _menuContentService;
         private readonly IMenuObjectService _menuObjectService;
         private readonly IBookService _bookService;
         private readonly IMovieService _movieService;
+        private readonly IBookGenreService _bookGenreService;
+        private readonly IMovieGenreService _movieGenreService;
+        private readonly IActorService _actorService;
+        private readonly IAuthorService _authorService;
+        private readonly IDirectorService _directorService;
 
         public Account Account { get; set; }
+        public SearchParams SearchParams { get; set; }
 
         public MainMenu()
         {
@@ -44,6 +51,21 @@ namespace WinformUI.Content
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _bookService = new BookManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _bookGenreService = new BookGenreManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _movieGenreService = new MovieGenreManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _actorService = new ActorManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _authorService = new AuthorManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _directorService = new DirectorManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _searchDropDownForm = new SearchDropDownForm
+            {
+                SetSearchParams = SetSearchParams,
+                Visible = false
+            };
 
             CollapseMenu();
             this.Padding = new Padding(borderSize);
@@ -247,7 +269,6 @@ namespace WinformUI.Content
         private void MainMenu_Resize(object sender, EventArgs e)
         {
             AdjustForm();
-            panelSearch.Location = new Point(btnSearch.Location.X + btnSearch.Width + 5, btnSearch.Location.Y + btnSearch.Height + 5);
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -677,9 +698,14 @@ namespace WinformUI.Content
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            panelSearch.Location = new Point(btnSearch.Location.X + btnSearch.Width + 5, btnSearch.Location.Y + btnSearch.Height + 5);
-            panelSearch.BackColor = Color.FromKnownColor(KnownColor.Control);
-            panelSearch.BringToFront();
+            _searchDropDownForm.Visible = true;
+            _searchDropDownForm.ShowDialog();
+            SearchParams = _searchDropDownForm.Params;
+        }
+
+        private void SetSearchParams(SearchParams searchParams)
+        {
+            SearchParams = searchParams;
         }
 
         private void timerTest_Tick(object sender, EventArgs e)

@@ -32,7 +32,8 @@ namespace WinformUI.Infrastructure.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.searchDropdownPanel1 = new WinformUI.Infrastructure.CustomControls.SearchDropdownPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -41,15 +42,25 @@ namespace WinformUI.Infrastructure.Forms
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // searchDropdownPanel1
+            // label1
             // 
-            this.searchDropdownPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.searchDropdownPanel1.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchDropdownPanel1.Location = new System.Drawing.Point(249, 54);
-            this.searchDropdownPanel1.Name = "searchDropdownPanel1";
-            this.searchDropdownPanel1.Padding = new System.Windows.Forms.Padding(20, 50, 20, 20);
-            this.searchDropdownPanel1.Size = new System.Drawing.Size(673, 590);
-            this.searchDropdownPanel1.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(504, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 47);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(504, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 47);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
             // 
             // Test
             // 
@@ -58,12 +69,14 @@ namespace WinformUI.Infrastructure.Forms
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1260, 735);
-            this.Controls.Add(this.searchDropdownPanel1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Test";
             this.Text = "Test";
             this.Load += new System.EventHandler(this.Test_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -71,6 +84,7 @@ namespace WinformUI.Infrastructure.Forms
 
         private SupriseMe supriseMe1;
         private System.Windows.Forms.Timer timer1;
-        private SearchDropdownPanel searchDropdownPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

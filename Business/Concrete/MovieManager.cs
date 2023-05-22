@@ -50,6 +50,23 @@ namespace Business.Concrete
             return result;
         }
 
+        public string GetMaxMinValues()
+        {
+            TokenCheck();
+            var response = Client.GetAsync(Endpoint + @"/getmaxminvalue").Result;
+            var data = response.Content.ReadAsStringAsync().Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var temp = JsonConvert.DeserializeObject<ProblemDetails>(data);
+                throw new Exception(temp.Title + " : " + temp.Status + "\n" + temp.Detail);
+            }
+
+            var result = JsonConvert.DeserializeObject<string>(data);
+
+            return result;
+        }
+
         public MovieResponseModel GetMovieById(int movieId)
         {
             TokenCheck();

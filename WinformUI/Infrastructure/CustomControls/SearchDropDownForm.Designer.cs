@@ -1,13 +1,13 @@
 ﻿namespace WinformUI.Infrastructure.CustomControls
 {
-    partial class SearchDropdownPanel
+    partial class SearchDropDownForm
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,44 +20,52 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelContainer = new System.Windows.Forms.Panel();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panelPrice = new WinformUI.Infrastructure.CustomControls.TransparentPanel();
-            this.lblPrice = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.panelActors = new WinformUI.Infrastructure.CustomControls.TransparentFlowLayoutPanel();
+            this.panelPrice = new System.Windows.Forms.Panel();
+            this.nudMaxValue = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nudMinValue = new System.Windows.Forms.NumericUpDown();
+            this.panelActors = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.lblActors = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.panelDirectors = new WinformUI.Infrastructure.CustomControls.TransparentFlowLayoutPanel();
+            this.panelDirectors = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.lblDirectors = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.panelAuthors = new WinformUI.Infrastructure.CustomControls.TransparentFlowLayoutPanel();
+            this.panelAuthors = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.lblAuthors = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.panelMovieGenres = new WinformUI.Infrastructure.CustomControls.TransparentFlowLayoutPanel();
+            this.panelMovieGenres = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.lblMovieGenres = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.panelBookGenres = new WinformUI.Infrastructure.CustomControls.TransparentFlowLayoutPanel();
+            this.panelBookGenres = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.lblBookGenres = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.panelProductTypes = new WinformUI.Infrastructure.CustomControls.TransparentFlowLayoutPanel();
+            this.panelProductTypes = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMovie = new FontAwesome.Sharp.IconButton();
             this.btnBook = new FontAwesome.Sharp.IconButton();
-            this.lblProductType = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.btnApply = new FontAwesome.Sharp.IconButton();
+            this.lblPrice = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.lblActors = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.lblDirectors = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.lblAuthors = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.lblMovieGenres = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.lblBookGenres = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.lblProductType = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.panelContainer.SuspendLayout();
             this.panelMain.SuspendLayout();
+            this.panelPrice.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinValue)).BeginInit();
             this.panelActors.SuspendLayout();
             this.panelDirectors.SuspendLayout();
             this.panelAuthors.SuspendLayout();
@@ -65,6 +73,36 @@
             this.panelBookGenres.SuspendLayout();
             this.panelProductTypes.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelContainer.Controls.Add(this.btnClose);
+            this.panelContainer.Controls.Add(this.panelMain);
+            this.panelContainer.Controls.Add(this.btnApply);
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(3, 3);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Padding = new System.Windows.Forms.Padding(18, 60, 18, 20);
+            this.panelContainer.Size = new System.Drawing.Size(634, 634);
+            this.panelContainer.TabIndex = 5;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.btnClose.IconColor = System.Drawing.Color.Black;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnClose.IconSize = 30;
+            this.btnClose.Location = new System.Drawing.Point(596, 4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(35, 28);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panelMain
             // 
@@ -84,33 +122,64 @@
             this.panelMain.Controls.Add(this.panelProductTypes);
             this.panelMain.Controls.Add(this.lblProductType);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(20, 60);
+            this.panelMain.Location = new System.Drawing.Point(18, 60);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(600, 560);
-            this.panelMain.TabIndex = 0;
+            this.panelMain.Size = new System.Drawing.Size(598, 554);
+            this.panelMain.TabIndex = 4;
             // 
             // panelPrice
             // 
             this.panelPrice.BackColor = System.Drawing.Color.Transparent;
+            this.panelPrice.Controls.Add(this.nudMaxValue);
+            this.panelPrice.Controls.Add(this.label1);
+            this.panelPrice.Controls.Add(this.nudMinValue);
             this.panelPrice.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPrice.Location = new System.Drawing.Point(0, 850);
             this.panelPrice.Name = "panelPrice";
-            this.panelPrice.Size = new System.Drawing.Size(579, 50);
+            this.panelPrice.Size = new System.Drawing.Size(577, 50);
             this.panelPrice.TabIndex = 14;
             // 
-            // lblPrice
+            // nudMaxValue
             // 
-            this.lblPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblPrice.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblPrice.Location = new System.Drawing.Point(0, 808);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Opacity = 0;
-            this.lblPrice.Size = new System.Drawing.Size(579, 42);
-            this.lblPrice.TabIndex = 13;
-            this.lblPrice.Text = "Price                                                        ";
-            this.lblPrice.TransparentBackColor = System.Drawing.Color.Black;
+            this.nudMaxValue.BackColor = System.Drawing.Color.Gainsboro;
+            this.nudMaxValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudMaxValue.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudMaxValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.nudMaxValue.Location = new System.Drawing.Point(123, 6);
+            this.nudMaxValue.Name = "nudMaxValue";
+            this.nudMaxValue.Size = new System.Drawing.Size(84, 38);
+            this.nudMaxValue.TabIndex = 2;
+            this.nudMaxValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudMaxValue.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.nudMaxValue.ValueChanged += new System.EventHandler(this.nudMaxValue_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.label1.Location = new System.Drawing.Point(95, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(22, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "-";
+            // 
+            // nudMinValue
+            // 
+            this.nudMinValue.BackColor = System.Drawing.Color.Gainsboro;
+            this.nudMinValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudMinValue.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudMinValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.nudMinValue.Location = new System.Drawing.Point(5, 6);
+            this.nudMinValue.Name = "nudMinValue";
+            this.nudMinValue.Size = new System.Drawing.Size(84, 38);
+            this.nudMinValue.TabIndex = 0;
+            this.nudMinValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudMinValue.ValueChanged += new System.EventHandler(this.nudMinValue_ValueChanged);
             // 
             // panelActors
             // 
@@ -120,7 +189,7 @@
             this.panelActors.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelActors.Location = new System.Drawing.Point(0, 708);
             this.panelActors.Name = "panelActors";
-            this.panelActors.Size = new System.Drawing.Size(579, 100);
+            this.panelActors.Size = new System.Drawing.Size(577, 100);
             this.panelActors.TabIndex = 12;
             // 
             // iconButton9
@@ -161,20 +230,6 @@
             this.iconButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton10.UseVisualStyleBackColor = true;
             // 
-            // lblActors
-            // 
-            this.lblActors.BackColor = System.Drawing.Color.Transparent;
-            this.lblActors.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblActors.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblActors.Location = new System.Drawing.Point(0, 666);
-            this.lblActors.Name = "lblActors";
-            this.lblActors.Opacity = 0;
-            this.lblActors.Size = new System.Drawing.Size(579, 42);
-            this.lblActors.TabIndex = 11;
-            this.lblActors.Text = "Actors                                                       ";
-            this.lblActors.TransparentBackColor = System.Drawing.Color.Black;
-            // 
             // panelDirectors
             // 
             this.panelDirectors.BackColor = System.Drawing.Color.Transparent;
@@ -183,7 +238,7 @@
             this.panelDirectors.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDirectors.Location = new System.Drawing.Point(0, 566);
             this.panelDirectors.Name = "panelDirectors";
-            this.panelDirectors.Size = new System.Drawing.Size(579, 100);
+            this.panelDirectors.Size = new System.Drawing.Size(577, 100);
             this.panelDirectors.TabIndex = 10;
             // 
             // iconButton7
@@ -224,20 +279,6 @@
             this.iconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton8.UseVisualStyleBackColor = true;
             // 
-            // lblDirectors
-            // 
-            this.lblDirectors.BackColor = System.Drawing.Color.Transparent;
-            this.lblDirectors.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDirectors.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirectors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblDirectors.Location = new System.Drawing.Point(0, 524);
-            this.lblDirectors.Name = "lblDirectors";
-            this.lblDirectors.Opacity = 0;
-            this.lblDirectors.Size = new System.Drawing.Size(579, 42);
-            this.lblDirectors.TabIndex = 9;
-            this.lblDirectors.Text = "Directors                                                     ";
-            this.lblDirectors.TransparentBackColor = System.Drawing.Color.Black;
-            // 
             // panelAuthors
             // 
             this.panelAuthors.BackColor = System.Drawing.Color.Transparent;
@@ -246,7 +287,7 @@
             this.panelAuthors.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAuthors.Location = new System.Drawing.Point(0, 424);
             this.panelAuthors.Name = "panelAuthors";
-            this.panelAuthors.Size = new System.Drawing.Size(579, 100);
+            this.panelAuthors.Size = new System.Drawing.Size(577, 100);
             this.panelAuthors.TabIndex = 8;
             // 
             // iconButton5
@@ -287,20 +328,6 @@
             this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton6.UseVisualStyleBackColor = true;
             // 
-            // lblAuthors
-            // 
-            this.lblAuthors.BackColor = System.Drawing.Color.Transparent;
-            this.lblAuthors.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblAuthors.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAuthors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblAuthors.Location = new System.Drawing.Point(0, 382);
-            this.lblAuthors.Name = "lblAuthors";
-            this.lblAuthors.Opacity = 0;
-            this.lblAuthors.Size = new System.Drawing.Size(579, 42);
-            this.lblAuthors.TabIndex = 7;
-            this.lblAuthors.Text = "Authors                                                       ";
-            this.lblAuthors.TransparentBackColor = System.Drawing.Color.Black;
-            // 
             // panelMovieGenres
             // 
             this.panelMovieGenres.BackColor = System.Drawing.Color.Transparent;
@@ -309,7 +336,7 @@
             this.panelMovieGenres.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMovieGenres.Location = new System.Drawing.Point(0, 282);
             this.panelMovieGenres.Name = "panelMovieGenres";
-            this.panelMovieGenres.Size = new System.Drawing.Size(579, 100);
+            this.panelMovieGenres.Size = new System.Drawing.Size(577, 100);
             this.panelMovieGenres.TabIndex = 6;
             // 
             // iconButton3
@@ -350,20 +377,6 @@
             this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton4.UseVisualStyleBackColor = true;
             // 
-            // lblMovieGenres
-            // 
-            this.lblMovieGenres.BackColor = System.Drawing.Color.Transparent;
-            this.lblMovieGenres.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblMovieGenres.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMovieGenres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblMovieGenres.Location = new System.Drawing.Point(0, 240);
-            this.lblMovieGenres.Name = "lblMovieGenres";
-            this.lblMovieGenres.Opacity = 0;
-            this.lblMovieGenres.Size = new System.Drawing.Size(579, 42);
-            this.lblMovieGenres.TabIndex = 5;
-            this.lblMovieGenres.Text = "Movie genres                                                 ";
-            this.lblMovieGenres.TransparentBackColor = System.Drawing.Color.Black;
-            // 
             // panelBookGenres
             // 
             this.panelBookGenres.BackColor = System.Drawing.Color.Transparent;
@@ -372,7 +385,7 @@
             this.panelBookGenres.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBookGenres.Location = new System.Drawing.Point(0, 140);
             this.panelBookGenres.Name = "panelBookGenres";
-            this.panelBookGenres.Size = new System.Drawing.Size(579, 100);
+            this.panelBookGenres.Size = new System.Drawing.Size(577, 100);
             this.panelBookGenres.TabIndex = 4;
             // 
             // iconButton1
@@ -413,20 +426,6 @@
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton2.UseVisualStyleBackColor = true;
             // 
-            // lblBookGenres
-            // 
-            this.lblBookGenres.BackColor = System.Drawing.Color.Transparent;
-            this.lblBookGenres.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblBookGenres.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookGenres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblBookGenres.Location = new System.Drawing.Point(0, 98);
-            this.lblBookGenres.Name = "lblBookGenres";
-            this.lblBookGenres.Opacity = 0;
-            this.lblBookGenres.Size = new System.Drawing.Size(579, 42);
-            this.lblBookGenres.TabIndex = 3;
-            this.lblBookGenres.Text = "Book genres                                                 ";
-            this.lblBookGenres.TransparentBackColor = System.Drawing.Color.Black;
-            // 
             // panelProductTypes
             // 
             this.panelProductTypes.BackColor = System.Drawing.Color.Transparent;
@@ -435,7 +434,7 @@
             this.panelProductTypes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProductTypes.Location = new System.Drawing.Point(0, 42);
             this.panelProductTypes.Name = "panelProductTypes";
-            this.panelProductTypes.Size = new System.Drawing.Size(579, 56);
+            this.panelProductTypes.Size = new System.Drawing.Size(577, 56);
             this.panelProductTypes.TabIndex = 1;
             // 
             // btnMovie
@@ -453,6 +452,7 @@
             this.btnMovie.Name = "btnMovie";
             this.btnMovie.Size = new System.Drawing.Size(195, 50);
             this.btnMovie.TabIndex = 2;
+            this.btnMovie.Tag = "1 Movie";
             this.btnMovie.Text = "Movie";
             this.btnMovie.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnMovie.UseVisualStyleBackColor = true;
@@ -472,40 +472,10 @@
             this.btnBook.Name = "btnBook";
             this.btnBook.Size = new System.Drawing.Size(195, 50);
             this.btnBook.TabIndex = 3;
+            this.btnBook.Tag = "2 Book";
             this.btnBook.Text = "Book";
             this.btnBook.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBook.UseVisualStyleBackColor = true;
-            // 
-            // lblProductType
-            // 
-            this.lblProductType.BackColor = System.Drawing.Color.Transparent;
-            this.lblProductType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblProductType.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblProductType.Location = new System.Drawing.Point(0, 0);
-            this.lblProductType.Name = "lblProductType";
-            this.lblProductType.Opacity = 0;
-            this.lblProductType.Size = new System.Drawing.Size(579, 42);
-            this.lblProductType.TabIndex = 0;
-            this.lblProductType.Text = "Product type                                                ";
-            this.lblProductType.TransparentBackColor = System.Drawing.Color.Black;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.btnClose.IconColor = System.Drawing.Color.Black;
-            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnClose.IconSize = 30;
-            this.btnClose.Location = new System.Drawing.Point(596, 19);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(35, 28);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnApply
             // 
@@ -517,7 +487,7 @@
             this.btnApply.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnApply.IconColor = System.Drawing.Color.Black;
             this.btnApply.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnApply.Location = new System.Drawing.Point(20, 15);
+            this.btnApply.Location = new System.Drawing.Point(4, 6);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(89, 39);
             this.btnApply.TabIndex = 3;
@@ -525,20 +495,126 @@
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
-            // SearchDropdownPanel
+            // lblPrice
+            // 
+            this.lblPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPrice.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblPrice.Location = new System.Drawing.Point(0, 808);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Opacity = 0;
+            this.lblPrice.Size = new System.Drawing.Size(577, 42);
+            this.lblPrice.TabIndex = 13;
+            this.lblPrice.Text = "Price                                                        ";
+            this.lblPrice.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // lblActors
+            // 
+            this.lblActors.BackColor = System.Drawing.Color.Transparent;
+            this.lblActors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblActors.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblActors.Location = new System.Drawing.Point(0, 666);
+            this.lblActors.Name = "lblActors";
+            this.lblActors.Opacity = 0;
+            this.lblActors.Size = new System.Drawing.Size(577, 42);
+            this.lblActors.TabIndex = 11;
+            this.lblActors.Text = "Actors                                                       ";
+            this.lblActors.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // lblDirectors
+            // 
+            this.lblDirectors.BackColor = System.Drawing.Color.Transparent;
+            this.lblDirectors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDirectors.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirectors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblDirectors.Location = new System.Drawing.Point(0, 524);
+            this.lblDirectors.Name = "lblDirectors";
+            this.lblDirectors.Opacity = 0;
+            this.lblDirectors.Size = new System.Drawing.Size(577, 42);
+            this.lblDirectors.TabIndex = 9;
+            this.lblDirectors.Text = "Directors                                                     ";
+            this.lblDirectors.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // lblAuthors
+            // 
+            this.lblAuthors.BackColor = System.Drawing.Color.Transparent;
+            this.lblAuthors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAuthors.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAuthors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblAuthors.Location = new System.Drawing.Point(0, 382);
+            this.lblAuthors.Name = "lblAuthors";
+            this.lblAuthors.Opacity = 0;
+            this.lblAuthors.Size = new System.Drawing.Size(577, 42);
+            this.lblAuthors.TabIndex = 7;
+            this.lblAuthors.Text = "Authors                                                       ";
+            this.lblAuthors.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // lblMovieGenres
+            // 
+            this.lblMovieGenres.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovieGenres.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMovieGenres.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovieGenres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblMovieGenres.Location = new System.Drawing.Point(0, 240);
+            this.lblMovieGenres.Name = "lblMovieGenres";
+            this.lblMovieGenres.Opacity = 0;
+            this.lblMovieGenres.Size = new System.Drawing.Size(577, 42);
+            this.lblMovieGenres.TabIndex = 5;
+            this.lblMovieGenres.Text = "Movie genres                                                 ";
+            this.lblMovieGenres.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // lblBookGenres
+            // 
+            this.lblBookGenres.BackColor = System.Drawing.Color.Transparent;
+            this.lblBookGenres.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblBookGenres.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookGenres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblBookGenres.Location = new System.Drawing.Point(0, 98);
+            this.lblBookGenres.Name = "lblBookGenres";
+            this.lblBookGenres.Opacity = 0;
+            this.lblBookGenres.Size = new System.Drawing.Size(577, 42);
+            this.lblBookGenres.TabIndex = 3;
+            this.lblBookGenres.Text = "Book genres                                                 ";
+            this.lblBookGenres.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // lblProductType
+            // 
+            this.lblProductType.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblProductType.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblProductType.Location = new System.Drawing.Point(0, 0);
+            this.lblProductType.Name = "lblProductType";
+            this.lblProductType.Opacity = 0;
+            this.lblProductType.Size = new System.Drawing.Size(577, 42);
+            this.lblProductType.TabIndex = 0;
+            this.lblProductType.Text = "Product type                                                ";
+            this.lblProductType.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // SearchDropDownForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
-            this.Controls.Add(this.btnApply);
-            this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.btnClose);
+            this.BackColor = System.Drawing.Color.DarkGray;
+            this.ClientSize = new System.Drawing.Size(640, 640);
+            this.Controls.Add(this.panelContainer);
             this.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "SearchDropdownPanel";
-            this.Padding = new System.Windows.Forms.Padding(20, 60, 20, 20);
-            this.Size = new System.Drawing.Size(640, 640);
-            this.Load += new System.EventHandler(this.SearchDropdownPanel_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "SearchDropDownForm";
+            this.Padding = new System.Windows.Forms.Padding(3);
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SearchDropDownForm";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.SearchDropDownForm_Load);
+            this.panelContainer.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
+            this.panelPrice.ResumeLayout(false);
+            this.panelPrice.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinValue)).EndInit();
             this.panelActors.ResumeLayout(false);
             this.panelDirectors.ResumeLayout(false);
             this.panelAuthors.ResumeLayout(false);
@@ -551,34 +627,38 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelMain;
-        private TransparentFlowLayoutPanel panelProductTypes;
-        private FontAwesome.Sharp.IconButton btnMovie;
-        private FontAwesome.Sharp.IconButton btnBook;
-        private TransparentLabelNew lblProductType;
-        private TransparentFlowLayoutPanel panelBookGenres;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private TransparentLabelNew lblBookGenres;
+        private System.Windows.Forms.Panel panelContainer;
         private FontAwesome.Sharp.IconButton btnClose;
-        private TransparentPanel panelPrice;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panelPrice;
+        private System.Windows.Forms.NumericUpDown nudMaxValue;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown nudMinValue;
         private TransparentLabelNew lblPrice;
-        private TransparentFlowLayoutPanel panelActors;
+        private System.Windows.Forms.FlowLayoutPanel panelActors;
         private FontAwesome.Sharp.IconButton iconButton9;
         private FontAwesome.Sharp.IconButton iconButton10;
         private TransparentLabelNew lblActors;
-        private TransparentFlowLayoutPanel panelDirectors;
+        private System.Windows.Forms.FlowLayoutPanel panelDirectors;
         private FontAwesome.Sharp.IconButton iconButton7;
         private FontAwesome.Sharp.IconButton iconButton8;
         private TransparentLabelNew lblDirectors;
-        private TransparentFlowLayoutPanel panelAuthors;
+        private System.Windows.Forms.FlowLayoutPanel panelAuthors;
         private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton iconButton6;
         private TransparentLabelNew lblAuthors;
-        private TransparentFlowLayoutPanel panelMovieGenres;
+        private System.Windows.Forms.FlowLayoutPanel panelMovieGenres;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton4;
         private TransparentLabelNew lblMovieGenres;
+        private System.Windows.Forms.FlowLayoutPanel panelBookGenres;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private TransparentLabelNew lblBookGenres;
+        private System.Windows.Forms.FlowLayoutPanel panelProductTypes;
+        private FontAwesome.Sharp.IconButton btnMovie;
+        private FontAwesome.Sharp.IconButton btnBook;
+        private TransparentLabelNew lblProductType;
         private FontAwesome.Sharp.IconButton btnApply;
     }
 }

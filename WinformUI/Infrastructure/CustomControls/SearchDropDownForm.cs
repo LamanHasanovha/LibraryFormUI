@@ -10,48 +10,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinformUI.Infrastructure.CustomControls
 {
-    public partial class SearchDropdownPanel : UserControl
+    public partial class SearchDropDownForm : Form
     {
-        #region DropShadowing
-
-        private const int WS_EX_TRANSPARENT = 0x20;
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= WS_EX_TRANSPARENT;
-                return cp;
-            }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            // Draw the drop shadow manually
-            using (GraphicsPath path = new GraphicsPath())
-            using (Pen pen = new Pen(Color.FromArgb(64, Color.Black), 2))
-            {
-                path.AddRectangle(new Rectangle(8, 8, Width - 16, Height - 16));
-                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                e.Graphics.DrawPath(pen, path);
-            }
-        }
-
-        #endregion
-
         private readonly IBookService _bookService;
         private readonly IMovieService _movieService;
         private readonly IBookGenreService _bookGenreService;
@@ -70,12 +38,14 @@ namespace WinformUI.Infrastructure.CustomControls
         private List<int> _selectedAuthors;
         private List<Director> _directors;
         private List<int> _selectedDirectors;
+        private List<int> _selectedProductTypes;
 
-        public SearchDropdownPanel()
+        public Action<SearchParams> SetSearchParams { get; set; }
+        public SearchParams Params { get; set; }
+
+        public SearchDropDownForm()
         {
             InitializeComponent();
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            BackColor = Color.Transparent;
             _movieService = new MovieManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _bookService = new BookManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
@@ -91,27 +61,31 @@ namespace WinformUI.Infrastructure.CustomControls
             _directorService = new DirectorManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
 
-            _bookGenres = new List<BookGenre>();
-            _selectedBookGenres = new List<int>();
-            _movieGenres = new List<MovieGenre>();
-            _selectedMovieGenres = new List<int>();
-            _actors = new List<Actor>();
-            _selectedActors = new List<int>();
-            _authors = new List<Author>();
-            _selectedAuthors = new List<int>();
-            _directors = new List<Director>();
-            _selectedDirectors = new List<int>();
         }
 
-
-        private void SearchDropdownPanel_Load(object sender, EventArgs e)
+        private void SearchDropDownForm_Load(object sender, EventArgs e)
         {
             LoadBookGenres();
             LoadMovieGenres();
             LoadActors();
             LoadAuthors();
             LoadDirectors();
+            SetMaxMinValues();
+        }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            this.Hide();
+        }
+
+        private void SetMaxMinValues()
+        {
+            var movieValues = _movieService.GetMaxMinValues().Split('-');
+            var bookValues = _bookService.GetMaxMinValues().Split('-');
+
+            nudMinValue.Minimum = nudMaxValue.Minimum = Math.Min(decimal.Parse(movieValues[0]), decimal.Parse(bookValues[0]));
+            nudMaxValue.Maximum = nudMinValue.Maximum = Math.Max(decimal.Parse(movieValues[1]), decimal.Parse(bookValues[1]));
         }
 
         private void LoadBookGenres()
@@ -122,16 +96,18 @@ namespace WinformUI.Infrastructure.CustomControls
                 var btn = GenerateButton(genre.Id, genre.Name, "BookGenre");
                 panelBookGenres.Controls.Add(btn);
             }
+            panelBookGenres.Height = (int)(Math.Floor((decimal)(genres.Count / 3)) * 51);
         }
 
         private void LoadMovieGenres()
         {
             var genres = _movieGenreService.GetAll();
-            foreach(var genre in genres)
+            foreach (var genre in genres)
             {
                 var btn = GenerateButton(genre.Id, genre.Name, "MovieGenre");
                 panelMovieGenres.Controls.Add(btn);
             }
+            panelMovieGenres.Height = (int)(Math.Floor((decimal)(genres.Count / 3)) * 51);
         }
 
         private void LoadActors()
@@ -142,6 +118,7 @@ namespace WinformUI.Infrastructure.CustomControls
                 var btn = GenerateButton(item.Id, item.FirstName + " " + item.LastName, "Actor");
                 panelActors.Controls.Add(btn);
             }
+            panelActors.Height = (int)(Math.Floor((decimal)(actors.Count / 3)) * 51);
         }
 
         private void LoadAuthors()
@@ -152,6 +129,7 @@ namespace WinformUI.Infrastructure.CustomControls
                 var btn = GenerateButton(item.Id, item.FirstName + " " + item.LastName, "Author");
                 panelAuthors.Controls.Add(btn);
             }
+            panelAuthors.Height = (int)(Math.Floor((decimal)(authors.Count / 3)) * 51);
         }
 
         private void LoadDirectors()
@@ -163,7 +141,7 @@ namespace WinformUI.Infrastructure.CustomControls
                 panelDirectors.Controls.Add(btn);
             }
 
-            //panelDirectors.Height = Math.Floor((decimal)(directors.Count / 3))
+            panelDirectors.Height = (int)(Math.Floor((decimal)(directors.Count / 3)) * 51);
         }
 
         private IconButton GenerateButton(int id, string name, string type)
@@ -218,15 +196,21 @@ namespace WinformUI.Infrastructure.CustomControls
                     break;
                 case "MovieGenre":
                     _selectedMovieGenres.Add(id);
-                  break;
+                    break;
                 case "Actor":
                     _selectedActors.Add(id);
                     break;
                 case "Author":
                     _selectedAuthors.Add(id);
-                  break;
+                    break;
                 case "Director":
                     _selectedDirectors.Add(id);
+                    break;
+                case "Book":
+                    _selectedProductTypes.Add(id);
+                    break;
+                case "Movie":
+                    _selectedProductTypes.Add(id);
                     break;
             }
         }
@@ -254,17 +238,59 @@ namespace WinformUI.Infrastructure.CustomControls
                 case "Director":
                     _selectedDirectors.Remove(id);
                     break;
+                case "Book":
+                    _selectedProductTypes.Remove(id);
+                    break;
+                case "Movie":
+                    _selectedProductTypes.Remove(id);
+                    break;
             }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            SendToBack();
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
+            Params = new SearchParams
+            {
+                SelectedActors = _selectedActors,
+                SelectedAuthors = _selectedAuthors,
+                SelectedDirectors = _selectedDirectors,
+                SelectedBookGenres = _selectedBookGenres,
+                SelectedMovieGenres = _selectedMovieGenres,
+                SelectedProductTypes = _selectedProductTypes,
+                MinValue = (int)nudMinValue.Value,
+                MaxValue = (int)nudMaxValue.Value
+            };
 
+            SetSearchParams?.Invoke(Params);
         }
+
+        private void nudMinValue_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudMinValue.Value > nudMaxValue.Value)
+                nudMaxValue.Value = nudMinValue.Value;
+        }
+
+        private void nudMaxValue_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudMaxValue.Value < nudMinValue.Value)
+                nudMinValue.Value = nudMaxValue.Value;
+        }
+
+       
+    }
+
+    public class SearchParams
+    {
+        public SearchParams() { }
+
+        public List<int> SelectedProductTypes { get; set; }
+        public List<int> SelectedBookGenres { get; set; }
+        public List<int> SelectedMovieGenres { get; set; }
+        public List<int> SelectedActors { get; set; }
+        public List<int> SelectedAuthors { get; set; }
+        public List<int> SelectedDirectors { get; set; }
+        public int MinValue { get; set; }
+        public int MaxValue { get; set; }
+
     }
 }

@@ -11,5 +11,6 @@ namespace Business.Abstract
         List<Movie> GetByActor(int  actorId);
         List<Movie> GetByDirector(int directorId);
         MovieResponseModel GetMovieById(int movieId);
+        string GetMaxMinValues();
     }
 }

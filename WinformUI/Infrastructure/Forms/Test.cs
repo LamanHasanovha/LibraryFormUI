@@ -13,10 +13,14 @@ namespace WinformUI.Infrastructure.Forms
 {
     public partial class Test : Form
     {
-        
+        SearchDropDownForm searchDropDownForm;
         public Test()
         {
             InitializeComponent();
+            searchDropDownForm = new SearchDropDownForm();
+            searchDropDownForm.DesktopLocation = 
+                new Point(this.DesktopLocation.X + label1.Location.X + 5, 
+                          this.DesktopLocation.Y + label1.Location.Y + 5);
         }
 
         private void Test_Load(object sender, EventArgs e)
@@ -74,11 +78,13 @@ namespace WinformUI.Infrastructure.Forms
             //reviewItem5.Build("User review \n\n review", "Asim", "07.09.2023");
             //reviewItem6.Build("user review \n\n\n review \n\n review", "Laman", "22.07.2023");
             
+            searchDropDownForm.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            label1.Text = searchDropDownForm.DesktopLocation.X + " " + searchDropDownForm.DesktopLocation.Y;
+            label2.Text = this.DesktopLocation.X + " " + this.DesktopLocation.Y;
         }
     }
 }
