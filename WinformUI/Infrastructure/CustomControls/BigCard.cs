@@ -75,6 +75,8 @@ namespace WinformUI.Infrastructure.CustomControls
         public Action<object, EventArgs> ClickEvent { get; set; }
         [Browsable(false)]
         public bool IsBook { get; set; }
+        [Browsable (false)]
+        public int RecordId { get; set; }
 
         public BigCard()
         {
@@ -99,6 +101,7 @@ namespace WinformUI.Infrastructure.CustomControls
             lblTitle.Text = movie.Name;
             lblDescription.Text = movie.Description;
             pcbImage.Load(movie.Image);
+            RecordId = movie.Id;
         }
 
         public void Build(Book book)
@@ -107,6 +110,7 @@ namespace WinformUI.Infrastructure.CustomControls
             lblTitle.Text = book.Name;
             lblDescription.Text=book.Description;
             pcbImage.Load(book.Image);
+            RecordId = book.Id;
         }
 
         public void Build(string title, string description, string imageUrl)
@@ -118,7 +122,7 @@ namespace WinformUI.Infrastructure.CustomControls
 
         private void card_Click(object sender, EventArgs e)
         {
-            ClickEvent?.Invoke(sender, e);
+            ClickEvent?.Invoke(this, e);
         }
     }
 }

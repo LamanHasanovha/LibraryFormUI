@@ -50,14 +50,15 @@
             // 
             // lblPrice
             // 
+            this.lblPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPrice.AutoSize = true;
             this.lblPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrice.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblPrice.Location = new System.Drawing.Point(377, 49);
+            this.lblPrice.Location = new System.Drawing.Point(363, 49);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Opacity = 0;
-            this.lblPrice.Size = new System.Drawing.Size(92, 34);
+            this.lblPrice.Size = new System.Drawing.Size(80, 30);
             this.lblPrice.TabIndex = 74;
             this.lblPrice.Text = "100.00";
             this.lblPrice.TransparentBackColor = System.Drawing.Color.Black;

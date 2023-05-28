@@ -38,20 +38,20 @@ namespace WinformUI.Content
 
         private void LoadCart()
         {
-            panelMain.Controls.Clear();
+            panelContents.Controls.Clear();
 
             var items = _cartService.GetByAccount(Account.Id);
 
-            panelMain.Controls.Add(CreateDivider());
+            panelContents.Controls.Add(CreateDivider());
             foreach (var item in items)
             {
                 var control = new CartItem();
                 control.RemoveFromCart = RemoveFromCart;
                 control.RecordId = item.Id;
                 control.Build(item);
-
-                panelMain.Controls.Add(control);
-                panelMain.Controls.Add(CreateDivider());
+                control.Dock = DockStyle.Top;
+                panelContents.Controls.Add(control);
+                panelContents.Controls.Add(CreateDivider());
             }
             _models = items;
 
@@ -83,7 +83,8 @@ namespace WinformUI.Content
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
-
+            var form = new CheckoutForm { Account = Account, Orders = _models };
+            form.ShowDialog();
         }
     }
 }

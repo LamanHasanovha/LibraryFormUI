@@ -28,12 +28,12 @@ namespace WinformUI.Content
             _authCodeService = new AuthCodeManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                       new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _time = new TimeSpan(1800000000);
-            Result = true;
+            Result = false;
         }
 
         private void SignUpConfirmForm_Load(object sender, EventArgs e)
         {
-
+            timer.Start();
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -54,8 +54,9 @@ namespace WinformUI.Content
                     Result = false;
                     return;
                 }
-
+                Result = true;
                 DevMsgBox.Show("Email confirmed.", "System");
+                this.Close();
             });
         }
 
@@ -72,6 +73,11 @@ namespace WinformUI.Content
 
             _time = _time.Subtract(new TimeSpan(0, 0, 1));
             lblTimer.Text = _time.Minutes.ToString().PadLeft(2, '0') + ":" + _time.Seconds.ToString().PadLeft(2, '0');
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

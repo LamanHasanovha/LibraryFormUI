@@ -50,7 +50,7 @@ namespace WinformUI.Application
         {
             try
             {
-                _authCodeService.SendAuthCode(0);
+                _authCodeService.SendAuthCode(0, tbxEmail.Texts.Trim());
                 DevMsgBox.Show("Auth code has been sent your email.", "System");
 
                 var form = new SignUpConfirmForm();
@@ -63,6 +63,11 @@ namespace WinformUI.Application
                 };
                 form.Account = Account;
                 form.ShowDialog();
+
+                if (!form.Result)
+                {
+                    return;
+                }
 
                 var account = _accountService.Register(new AccountRegisterModel
                 {

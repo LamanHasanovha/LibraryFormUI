@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAccountService.cs" />
+    <Compile Include="Abstract\IActivityService.cs" />
     <Compile Include="Abstract\IActorService.cs" />
     <Compile Include="Abstract\IAuthCodeService.cs" />
     <Compile Include="Abstract\IAuthorService.cs" />
@@ -70,12 +71,16 @@
     <Compile Include="Abstract\IMovieService.cs" />
     <Compile Include="Abstract\IMovieWishListService.cs" />
     <Compile Include="Abstract\IOperationClaimService.cs" />
+    <Compile Include="Abstract\IPaymentService.cs" />
+    <Compile Include="Abstract\IPurchaseService.cs" />
     <Compile Include="Abstract\IRatingService.cs" />
+    <Compile Include="Abstract\IRecommenderService.cs" />
     <Compile Include="Abstract\IReviewService.cs" />
     <Compile Include="Abstract\IServiceRepository.cs" />
     <Compile Include="Abstract\IUserOperationClaimService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Concrete\AccountManager.cs" />
+    <Compile Include="Concrete\ActivityManager.cs" />
     <Compile Include="Concrete\ActorManager.cs" />
     <Compile Include="Concrete\AuthCodeManager.cs" />
     <Compile Include="Concrete\AuthorManager.cs" />
@@ -97,7 +102,10 @@
     <Compile Include="Concrete\MovieManager.cs" />
     <Compile Include="Concrete\MovieWishListManager.cs" />
     <Compile Include="Concrete\OperationClaimManager.cs" />
+    <Compile Include="Concrete\PaymentManager.cs" />
+    <Compile Include="Concrete\PurchaseManager.cs" />
     <Compile Include="Concrete\RatingManager.cs" />
+    <Compile Include="Concrete\RecommenderManager.cs" />
     <Compile Include="Concrete\ReviewManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Concrete\UserOperationClaimManager.cs" />

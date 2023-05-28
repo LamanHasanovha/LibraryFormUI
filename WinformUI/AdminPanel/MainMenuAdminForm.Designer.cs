@@ -253,12 +253,6 @@
             this.cmbContents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cmbContents.ForeColor = System.Drawing.Color.DimGray;
             this.cmbContents.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cmbContents.Items.AddRange(new object[] {
-            "Slider",
-            "SpecialSlider",
-            "News",
-            "SupriseMe",
-            "ButtonComplex"});
             this.cmbContents.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbContents.ListTextColor = System.Drawing.Color.DimGray;
             this.cmbContents.Location = new System.Drawing.Point(316, 131);
@@ -299,6 +293,7 @@
             this.tbxDescriptionObject.PasswordChar = false;
             this.tbxDescriptionObject.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxDescriptionObject.PlaceholderText = "";
+            this.tbxDescriptionObject.Readonly = false;
             this.tbxDescriptionObject.Size = new System.Drawing.Size(289, 39);
             this.tbxDescriptionObject.TabIndex = 69;
             this.tbxDescriptionObject.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -334,6 +329,7 @@
             this.tbxTitleObject.PasswordChar = false;
             this.tbxTitleObject.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxTitleObject.PlaceholderText = "";
+            this.tbxTitleObject.Readonly = false;
             this.tbxTitleObject.Size = new System.Drawing.Size(289, 39);
             this.tbxTitleObject.TabIndex = 67;
             this.tbxTitleObject.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -578,6 +574,7 @@
             this.tbxPriority.PasswordChar = false;
             this.tbxPriority.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxPriority.PlaceholderText = "";
+            this.tbxPriority.Readonly = false;
             this.tbxPriority.Size = new System.Drawing.Size(289, 39);
             this.tbxPriority.TabIndex = 67;
             this.tbxPriority.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -613,6 +610,7 @@
             this.tbxDescriptionContent.PasswordChar = false;
             this.tbxDescriptionContent.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxDescriptionContent.PlaceholderText = "";
+            this.tbxDescriptionContent.Readonly = false;
             this.tbxDescriptionContent.Size = new System.Drawing.Size(289, 39);
             this.tbxDescriptionContent.TabIndex = 65;
             this.tbxDescriptionContent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -628,8 +626,10 @@
             this.cmbContentTypes.ForeColor = System.Drawing.Color.DimGray;
             this.cmbContentTypes.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbContentTypes.Items.AddRange(new object[] {
-            "Slider",
-            "SpecialSlider",
+            "SliderDetails",
+            "SliderBigCards",
+            "SpecialSliderNewsCard",
+            "SpecialSliderBigCard",
             "News",
             "SupriseMe",
             "ButtonComplex"});
@@ -684,6 +684,7 @@
             this.tbxTitleContent.PasswordChar = false;
             this.tbxTitleContent.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbxTitleContent.PlaceholderText = "";
+            this.tbxTitleContent.Readonly = false;
             this.tbxTitleContent.Size = new System.Drawing.Size(289, 39);
             this.tbxTitleContent.TabIndex = 26;
             this.tbxTitleContent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

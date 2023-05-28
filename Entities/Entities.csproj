@@ -44,6 +44,7 @@
     <Compile Include="Abstract\IEntity.cs" />
     <Compile Include="Abstract\IModel.cs" />
     <Compile Include="Concrete\Account.cs" />
+    <Compile Include="Concrete\Activity.cs" />
     <Compile Include="Concrete\Actor.cs" />
     <Compile Include="Concrete\AuthCode.cs" />
     <Compile Include="Concrete\Author.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Concrete\MovieGenreList.cs" />
     <Compile Include="Concrete\MovieWishList.cs" />
     <Compile Include="Concrete\OperationClaim.cs" />
+    <Compile Include="Concrete\Purchase.cs" />
     <Compile Include="Concrete\Rating.cs" />
     <Compile Include="Concrete\Review.cs" />
     <Compile Include="Concrete\User.cs" />
@@ -72,11 +74,14 @@
     <Compile Include="Constants\Gender.cs" />
     <Compile Include="Constants\ProductTypes.cs" />
     <Compile Include="Constants\RatingTypes.cs" />
+    <Compile Include="Models\RequestModels\AccountInfoModel.cs" />
     <Compile Include="Models\RequestModels\AccountLoginModel.cs" />
     <Compile Include="Models\RequestModels\AccountRegisterModel.cs" />
     <Compile Include="Models\RequestModels\AccountUpdateInfoModel.cs" />
     <Compile Include="Models\RequestModels\AccountUpdateModel.cs" />
     <Compile Include="Models\RequestModels\AccountViewModel.cs" />
+    <Compile Include="Models\RequestModels\OrderInfoModel.cs" />
+    <Compile Include="Models\RequestModels\PaymentModel.cs" />
     <Compile Include="Models\RequestModels\ProblemDetails.cs" />
     <Compile Include="Models\RequestModels\UserForLoginModel.cs" />
     <Compile Include="Models\RequestModels\UserForRegisterModel.cs" />

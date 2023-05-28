@@ -39,6 +39,9 @@ namespace Business.DependencyResolvers
             Bind<IMenuObjectService>().To<MenuObjectManager>().InSingletonScope();
             Bind<IRatingService>().To<RatingManager>().InSingletonScope();
             Bind<IReviewService>().To<ReviewManager>().InSingletonScope();
+            Bind<IActivityService>().To<ActivityManager>().InSingletonScope();
+            Bind<IPurchaseService>().To<PurchaseManager>().InSingletonScope();
+            Bind<IRecommenderService>().To<RecommenderManager>().InSingletonScope();
         }
     }
 }

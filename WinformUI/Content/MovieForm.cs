@@ -67,7 +67,10 @@ namespace WinformUI.Content
             LoadReviews();
 
             var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Movie);
-            rtcMovie.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+            if (ratings.Count > 0)
+                rtcMovie.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+            else
+                rtcMovie.RatingReport = 0 + "\n" + ratings.Count;
         }
 
 
@@ -79,7 +82,8 @@ namespace WinformUI.Content
         private void LoadReviews()
         {
             var reviews = _reviewService.GetByType(RecordId, RatingTypes.Movie);
-
+            if (reviews == null)
+                return;
             foreach (var review in reviews)
             {
                 var item = new ReviewItem();

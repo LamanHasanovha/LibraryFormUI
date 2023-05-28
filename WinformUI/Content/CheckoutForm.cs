@@ -1,8 +1,19 @@
-﻿using Core.WinFormUI.Design.MessageBox;
+﻿using Business.Abstract;
+using Business.Concrete;
+using Business.DependencyResolvers;
+using Core.WinFormUI.Design.DropShadowing;
+using Core.WinFormUI.Design.MessageBox;
+using Core.WinFormUI.Infrastructure.Helpers;
+using Entities.Concrete;
+using Entities.Models.RequestModels;
 using Entities.Models.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WinformUI.Infrastructure.CustomControls;
@@ -11,16 +22,23 @@ namespace WinformUI.Content
 {
     public partial class CheckoutForm : Form
     {
+        private readonly IPurchaseService _purchaseService;
+        private readonly IPaymentService _paymentService;
         public List<CartResponseModel> Orders { get; set; }
+        public Account Account { get; set; }
 
         public CheckoutForm()
         {
             InitializeComponent();
+            new DropShadow().ApplyShadows(this);
+            _purchaseService = new PurchaseManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                                  new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _paymentService = new PaymentManager();
         }
 
         private void CheckoutForm_Load(object sender, EventArgs e)
         {
-            //LoadOrders();
+            LoadOrders();
         }
 
         private void LoadOrders()
@@ -33,6 +51,8 @@ namespace WinformUI.Content
 
                 panelOrders.Controls.Add(item);
             }
+
+            lblPrice.Text = string.Format(CultureInfo.CreateSpecificCulture("az-AZ"), "{0:C}", Orders.Select(o => o.Price).Sum());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -75,7 +95,62 @@ namespace WinformUI.Content
             if (value)
                 return;
 
+            var file = _paymentService.Pay(new PaymentModel
+            {
+                AccountInfo = new AccountInfoModel
+                {
+                    Id = Account.Id,
+                    Email = Account.Email,
+                    FirstName = Account.FirstName,
+                    LastName = Account.LastName,
+                    UserName = Account.Username
+                },
+                Orders = GetOrders()
+            });
 
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.Title = "Save PDF";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Create a new FileStream for the output file
+                using (var outputFileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                {
+                    // Copy the PDF data from the input FileStream to the output FileStream
+                    file.CopyTo(outputFileStream);
+                }
+
+                DevMsgBox.Show("PDF saved successfully.", "System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            foreach (var item in Orders)
+            {
+                _purchaseService.Add(new Purchase
+                {
+                    AccountId = Account.Id,
+                    ProductType = item.ProductType,
+                    RecordId = item.RecordId
+                });
+            }
+        }
+
+        private List<OrderInfoModel> GetOrders()
+        {
+            var result = new List<OrderInfoModel>();
+            foreach (var item in Orders)
+            {
+                result.Add(new OrderInfoModel
+                {
+                    Name = item.Name,
+                    Price = item.Price,
+                    ProductType = (int)item.ProductType
+                });
+            }
+
+            return result;
         }
 
         private bool CheckExpDate(string expDate)

@@ -134,7 +134,7 @@
             // 
             this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblName.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.lblName.Location = new System.Drawing.Point(3, 3);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(324, 43);
@@ -148,7 +148,7 @@
             // 
             this.lblGenre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGenre.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblGenre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.lblGenre.Location = new System.Drawing.Point(3, 52);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(324, 18);
@@ -156,6 +156,7 @@
             this.lblGenre.TabStop = false;
             this.lblGenre.Text = "Genres";
             this.lblGenre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGenre.Visible = false;
             this.lblGenre.Click += new System.EventHandler(this.movieSliderObject_Click);
             // 
             // panelButtons

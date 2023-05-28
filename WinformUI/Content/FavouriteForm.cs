@@ -43,6 +43,7 @@ namespace WinformUI.Content
 
         private void LoadBookFavList()
         {
+            panelMain.Controls.Clear();
             var books = _bookFavListService.GetByAccount(Account.Id);
 
             panelMain.Controls.Add(CreateDivider());
@@ -60,10 +61,21 @@ namespace WinformUI.Content
                 panelMain.Controls.Add(item);
                 panelMain.Controls.Add(CreateDivider());
             }
+            if(panelMain.Controls.Count == 1) 
+            {
+                var label = new TransparentLabel();
+                label.Font = lblFavList.Font;
+                label.ForeColor = lblFavList.ForeColor;
+                label.Dock = DockStyle.Fill;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                label.Text = "No book added to favourites";
+                panelMain.Controls.Add(label);
+            }
         }
 
         private void LoadMovieFavList()
         {
+            panelMain.Controls.Clear();
             var movies = _movieFavListService.GetByAccount(Account.Id);
 
             panelMain.Controls.Add(CreateDivider());
@@ -81,13 +93,21 @@ namespace WinformUI.Content
                 panelMain.Controls.Add(item);
                 panelMain.Controls.Add(CreateDivider());
             }
-
-            panelMain.Controls.Add(CreateDivider());
+            if (panelMain.Controls.Count == 1)
+            {
+                var label = new TransparentLabel();
+                label.Font = lblFavList.Font;
+                label.ForeColor = lblFavList.ForeColor;
+                label.Dock = DockStyle.Fill;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                label.Text = "No movie added to favourites";
+                panelMain.Controls.Add(label);
+            }
         }
 
         private void timerBook_Tick(object sender, EventArgs e)
         {
-            if (panelHighlight.Location.X <= 20)
+            if (panelHighlight.Location.X <= btnBook.Location.X + 10)
             {
                 timerBook.Stop();
                 btnMovie.IconColor = Color.FromArgb(68, 132, 188);
@@ -105,7 +125,7 @@ namespace WinformUI.Content
 
         private void timerMovie_Tick(object sender, EventArgs e)
         {
-            if (panelHighlight.Location.X >= 270)
+            if (panelHighlight.Location.X >= btnMovie.Location.X + 10)
             {
                 timerMovie.Stop();
                 btnMovie.IconColor = Color.Gainsboro;
@@ -140,7 +160,7 @@ namespace WinformUI.Content
             if (btnMovie.IconColor == Color.Gainsboro)
                 return;
 
-            LoadBookFavList();
+            LoadMovieFavList();
         }
 
         private void AddToCart(int recordId, bool isBook)

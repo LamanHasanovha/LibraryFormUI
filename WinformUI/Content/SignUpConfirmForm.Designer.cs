@@ -51,6 +51,7 @@
             this.btnClose.Size = new System.Drawing.Size(35, 28);
             this.btnClose.TabIndex = 3;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // tbxCode
             // 
@@ -76,7 +77,6 @@
             this.tbxCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxCode.Texts = "";
             this.tbxCode.UnderlinedStyle = false;
-            this.tbxCode.Visible = false;
             // 
             // lblTimer
             // 

@@ -60,7 +60,7 @@ namespace WinformUI.Content
                         return;
                     }
 
-                    _authCodeService.SendAuthCode(Account.Id);
+                    _authCodeService.SendAuthCode(Account.Id, tbxEmail.Texts.Trim());
 
                     tbxCode.Visible = true;
                     lblTimer.Visible = true;

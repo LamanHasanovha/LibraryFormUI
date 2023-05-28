@@ -19,8 +19,7 @@ namespace Business.Concrete
         public List<Rating> GetByRecord(int recordId, RatingTypes type)
         {
             TokenCheck();
-            var response = Client.PostAsync(Endpoint + @"/getbyrecord?recordId=" + recordId + @"&type=" + (int)type,
-                                            new StringContent("", Encoding.UTF8, "application/json")).Result;
+            var response = Client.GetAsync(Endpoint + @"/getbyrecord?recordId=" + recordId + @"&type=" + (int)type).Result;
             var data = response.Content.ReadAsStringAsync().Result;
 
             if (!response.IsSuccessStatusCode)

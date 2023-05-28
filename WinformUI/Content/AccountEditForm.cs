@@ -39,7 +39,7 @@ namespace WinformUI.Content
             tbxPassword.PasswordChar = !tbxPassword.PasswordChar;
             if (btnPass.IconChar == IconChar.Eye)
                 btnPass.IconChar = IconChar.EyeSlash;
-            else 
+            else
                 btnPass.IconChar = IconChar.Eye;
         }
 
@@ -55,13 +55,13 @@ namespace WinformUI.Content
                 return;
             }
 
-            if(tbxPassword.Texts.Trim().Length > 0 & tbxPassword.Texts.Length < 5)
+            if (tbxPassword.Texts.Trim().Length > 0 & tbxPassword.Texts.Length < 5)
             {
                 DevMsgBox.Show("Password length must be greater than 5.");
                 return;
             }
 
-            if(tbxPassword.Texts.Trim().Length > 0)
+            if (tbxPassword.Texts.Trim().Length > 0)
             {
                 var account = _accountService.UpdateWithPassword(new AccountUpdateModel
                 {
@@ -82,8 +82,8 @@ namespace WinformUI.Content
             {
                 Id = Account.Id,
                 FirstName = tbxFirstName.Texts.Trim(),
-                UserName= tbxUserName.Texts.Trim(),
-                LastName= tbxLastName.Texts.Trim()
+                UserName = tbxUserName.Texts.Trim(),
+                LastName = tbxLastName.Texts.Trim()
             });
             Account = acc;
             DevMsgBox.Show("Saved!", "System");
@@ -92,7 +92,7 @@ namespace WinformUI.Content
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            OpenFormEvent?.Invoke(new AccountForm { Account = Account, OpenFormEvent = OpenFormEvent}, false);
+            OpenFormEvent?.Invoke(new AccountForm { Account = Account, OpenFormEvent = OpenFormEvent }, false);
         }
 
         private void btnChangeEmail_Click(object sender, EventArgs e)

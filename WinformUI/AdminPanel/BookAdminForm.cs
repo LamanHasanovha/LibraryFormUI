@@ -235,7 +235,11 @@ namespace WinformUI.AdminPanel
 
             foreach (var item in list)
             {
-                indexes.Add(data[item - 1].Id - 1);
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i].Id == item)
+                        indexes.Add(i);
+                }
             }
             slcGenres.SelectedIndexes = indexes;
             slcGenres.SetSelectedItems();

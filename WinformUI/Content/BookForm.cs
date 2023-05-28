@@ -20,6 +20,8 @@ namespace WinformUI.Content
         private readonly IBookService _bookService;
         private readonly IRatingService _ratingService;
         private readonly IReviewService _reviewService;
+        private readonly IActivityService _activityService;
+        private readonly IRecommenderService _recommenderService;
 
         public BookForm()
         {
@@ -30,9 +32,19 @@ namespace WinformUI.Content
                    new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _reviewService = new ReviewManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                   new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
-            
+            _activityService = new ActivityManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                  new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _recommenderService = new RecommenderManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                  new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+
             rtcBook.SetRating = SetRating;
             rtcBook.ReloadRating = ReloadRating;
+            _activityService.Add(new Activity
+            {
+                AccountId = Account.Id,
+                ProductType = ProductTypes.Book,
+                RecordId = RecordId
+            });
         }
 
         private void BookForm_Load(object sender, EventArgs e)
@@ -65,12 +77,22 @@ namespace WinformUI.Content
             LoadReviews();
 
             var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Book);
-            rtcBook.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+            if(ratings.Count > 0)
+                rtcBook.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+            else
+                rtcBook.RatingReport = 0 + "\n" + ratings.Count;
+
         }
 
         private void LoadSimilars()
         {
+            var books = _recommenderService.GetBooks(RecordId, 20);
 
+            foreach (var book in books)
+            {
+                var item = new BookSliderObject();
+                
+            }
         }
 
         private void LoadReviews()

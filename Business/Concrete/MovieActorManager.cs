@@ -50,7 +50,7 @@ namespace Business.Concrete
             TokenCheck();
             var json = JsonConvert.SerializeObject(list);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = Client.PostAsync(Endpoint + @"updatebymovie", content).Result;
+            var response = Client.PostAsync(Endpoint + @"/updatebymovie", content).Result;
             var data = response.Content.ReadAsStringAsync().Result;
 
             if (!response.IsSuccessStatusCode)

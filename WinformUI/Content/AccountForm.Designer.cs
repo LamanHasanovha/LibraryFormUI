@@ -109,7 +109,7 @@
             this.lblFirstnameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.lblFirstnameValue.Location = new System.Drawing.Point(723, 328);
             this.lblFirstnameValue.Name = "lblFirstnameValue";
-            this.lblFirstnameValue.Size = new System.Drawing.Size(344, 71);
+            this.lblFirstnameValue.Size = new System.Drawing.Size(473, 71);
             this.lblFirstnameValue.TabIndex = 31;
             this.lblFirstnameValue.TabStop = false;
             this.lblFirstnameValue.Text = "Firstname value";
@@ -122,7 +122,7 @@
             this.lblLastnameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.lblLastnameValue.Location = new System.Drawing.Point(723, 415);
             this.lblLastnameValue.Name = "lblLastnameValue";
-            this.lblLastnameValue.Size = new System.Drawing.Size(344, 71);
+            this.lblLastnameValue.Size = new System.Drawing.Size(473, 71);
             this.lblLastnameValue.TabIndex = 33;
             this.lblLastnameValue.TabStop = false;
             this.lblLastnameValue.Text = "Lastname value";
@@ -148,7 +148,7 @@
             this.lblUsernameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.lblUsernameValue.Location = new System.Drawing.Point(723, 512);
             this.lblUsernameValue.Name = "lblUsernameValue";
-            this.lblUsernameValue.Size = new System.Drawing.Size(344, 71);
+            this.lblUsernameValue.Size = new System.Drawing.Size(473, 71);
             this.lblUsernameValue.TabIndex = 35;
             this.lblUsernameValue.TabStop = false;
             this.lblUsernameValue.Text = "Username value";
@@ -174,7 +174,7 @@
             this.lblEmailValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.lblEmailValue.Location = new System.Drawing.Point(723, 601);
             this.lblEmailValue.Name = "lblEmailValue";
-            this.lblEmailValue.Size = new System.Drawing.Size(344, 71);
+            this.lblEmailValue.Size = new System.Drawing.Size(473, 71);
             this.lblEmailValue.TabIndex = 37;
             this.lblEmailValue.TabStop = false;
             this.lblEmailValue.Text = "Email";

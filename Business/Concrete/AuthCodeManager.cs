@@ -31,10 +31,10 @@ namespace Business.Concrete
             return result;
         }
 
-        public void SendAuthCode(int accountId)
+        public void SendAuthCode(int accountId, string email)
         {
             TokenCheck();
-            var response = Client.PostAsync(Endpoint + @"/sendauthcode?accountId=" + accountId, new StringContent("", Encoding.UTF8, "application/json")).Result;
+            var response = Client.PostAsync(Endpoint + @"/sendauthcode?accountId=" + accountId + @"&email=" + email, new StringContent("", Encoding.UTF8, "application/json")).Result;
             var data = response.Content.ReadAsStringAsync().Result;
 
             if (!response.IsSuccessStatusCode)

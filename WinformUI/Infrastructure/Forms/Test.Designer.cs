@@ -34,6 +34,7 @@ namespace WinformUI.Infrastructure.Forms
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // timer1
@@ -62,6 +63,13 @@ namespace WinformUI.Infrastructure.Forms
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(426, 245);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(409, 233);
+            this.panel1.TabIndex = 2;
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -69,6 +77,7 @@ namespace WinformUI.Infrastructure.Forms
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1260, 735);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,5 +95,6 @@ namespace WinformUI.Infrastructure.Forms
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

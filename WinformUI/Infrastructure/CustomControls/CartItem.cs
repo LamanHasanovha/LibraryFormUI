@@ -52,7 +52,7 @@ namespace WinformUI.Infrastructure.CustomControls
                 }
             }
 
-            tbxName.Text = model.Name;
+            tbxName.Texts = model.Name;
             lblPrice.Text = string.Format(CultureInfo.CreateSpecificCulture("az-AZ"), "{0:C}", model.Price);
             switch (model.ProductType)
             {

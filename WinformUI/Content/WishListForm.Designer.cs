@@ -35,10 +35,12 @@
             this.timerBook = new System.Windows.Forms.Timer(this.components);
             this.panelHighlight = new System.Windows.Forms.Panel();
             this.timerMovie = new System.Windows.Forms.Timer(this.components);
+            this.lblWishList = new WinformUI.Infrastructure.CustomControls.TransparentLabel();
             this.SuspendLayout();
             // 
             // btnBook
             // 
+            this.btnBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBook.FlatAppearance.BorderSize = 0;
             this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -47,7 +49,7 @@
             this.btnBook.IconChar = FontAwesome.Sharp.IconChar.Book;
             this.btnBook.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnBook.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBook.Location = new System.Drawing.Point(10, 12);
+            this.btnBook.Location = new System.Drawing.Point(850, 12);
             this.btnBook.Name = "btnBook";
             this.btnBook.Size = new System.Drawing.Size(220, 66);
             this.btnBook.TabIndex = 0;
@@ -68,6 +70,7 @@
             // 
             // btnMovie
             // 
+            this.btnMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMovie.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMovie.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -75,7 +78,7 @@
             this.btnMovie.IconChar = FontAwesome.Sharp.IconChar.Film;
             this.btnMovie.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnMovie.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMovie.Location = new System.Drawing.Point(262, 12);
+            this.btnMovie.Location = new System.Drawing.Point(1102, 12);
             this.btnMovie.Name = "btnMovie";
             this.btnMovie.Size = new System.Drawing.Size(220, 66);
             this.btnMovie.TabIndex = 2;
@@ -91,8 +94,9 @@
             // 
             // panelHighlight
             // 
+            this.panelHighlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelHighlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.panelHighlight.Location = new System.Drawing.Point(20, 84);
+            this.panelHighlight.Location = new System.Drawing.Point(860, 84);
             this.panelHighlight.Name = "panelHighlight";
             this.panelHighlight.Size = new System.Drawing.Size(200, 9);
             this.panelHighlight.TabIndex = 3;
@@ -102,11 +106,24 @@
             this.timerMovie.Interval = 1;
             this.timerMovie.Tick += new System.EventHandler(this.timerMovie_Tick);
             // 
+            // lblWishList
+            // 
+            this.lblWishList.Font = new System.Drawing.Font("Comic Sans MS", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWishList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.lblWishList.Location = new System.Drawing.Point(52, 27);
+            this.lblWishList.Name = "lblWishList";
+            this.lblWishList.Size = new System.Drawing.Size(414, 66);
+            this.lblWishList.TabIndex = 74;
+            this.lblWishList.TabStop = false;
+            this.lblWishList.Text = "Wishlist";
+            this.lblWishList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // WishListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1391, 836);
+            this.Controls.Add(this.lblWishList);
             this.Controls.Add(this.panelHighlight);
             this.Controls.Add(this.btnMovie);
             this.Controls.Add(this.panelMain);
@@ -129,5 +146,6 @@
         private System.Windows.Forms.Timer timerBook;
         private System.Windows.Forms.Panel panelHighlight;
         private System.Windows.Forms.Timer timerMovie;
+        private Infrastructure.CustomControls.TransparentLabel lblWishList;
     }
 }

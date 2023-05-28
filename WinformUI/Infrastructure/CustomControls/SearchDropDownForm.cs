@@ -65,12 +65,12 @@ namespace WinformUI.Infrastructure.CustomControls
 
         private void SearchDropDownForm_Load(object sender, EventArgs e)
         {
-            LoadBookGenres();
-            LoadMovieGenres();
-            LoadActors();
-            LoadAuthors();
-            LoadDirectors();
-            SetMaxMinValues();
+            //LoadBookGenres();
+            //LoadMovieGenres();
+            //LoadActors();
+            //LoadAuthors();
+            //LoadDirectors();
+            //SetMaxMinValues();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -169,14 +169,14 @@ namespace WinformUI.Infrastructure.CustomControls
                     btn.BackColor = Color.FromArgb(68, 132, 188);
                     btn.ForeColor = Color.Gainsboro;
                     btn.IconColor = Color.Gainsboro;
-                    AddToSelected(btn);
+                    //AddToSelected(btn);
                     break;
                 case IconChar.CircleMinus:
                     btn.IconChar = IconChar.CirclePlus;
                     btn.ForeColor = Color.FromArgb(68, 132, 188);
                     btn.IconColor = Color.FromArgb(68, 132, 188);
                     btn.BackColor = Color.Gainsboro;
-                    RemoveFromSelected(btn);
+                    //RemoveFromSelected(btn);
                     break;
                 default:
                     break;

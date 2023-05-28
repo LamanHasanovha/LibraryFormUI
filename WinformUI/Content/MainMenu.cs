@@ -36,6 +36,11 @@ namespace WinformUI.Content
         private readonly IActorService _actorService;
         private readonly IAuthorService _authorService;
         private readonly IDirectorService _directorService;
+        private readonly ICartService _cartService;
+        private readonly IBookWishListService _bookWishListService;
+        private readonly IMovieWishListService _movieWishListService;
+        private readonly IBookFavListService _bookFavListService;
+        private readonly IMovieFavListService _movieFavListService;
 
         public Account Account { get; set; }
         public SearchParams SearchParams { get; set; }
@@ -61,6 +66,17 @@ namespace WinformUI.Content
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _directorService = new DirectorManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _cartService = new CartManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _bookWishListService = new BookWishListManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _movieWishListService = new MovieWishListManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _bookFavListService = new BookFavListManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _movieFavListService = new MovieFavListManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                     new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+
             _searchDropDownForm = new SearchDropDownForm
             {
                 SetSearchParams = SetSearchParams,
@@ -74,12 +90,12 @@ namespace WinformUI.Content
         private void MainMenu_Load(object sender, EventArgs e)
         {
             formSize = this.ClientSize;
-            //LoadHomePage();
+            LoadHomePage();
         }
 
         private void OpenChildForm(BaseForm childForm, IconButton sender)
         {
-            if(_currentButton != null)
+            if (_currentButton != null)
             {
                 _currentButton.BackColor = Color.FromArgb(68, 132, 188);
                 _currentButton.IconColor = Color.Gainsboro;
@@ -96,6 +112,7 @@ namespace WinformUI.Content
             childForm.Account = Account;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
+            childForm.Account = Account;
             panelContent.Controls.Clear();
             panelContent.Controls.Add(childForm);
             panelContent.Tag = childForm;
@@ -105,7 +122,7 @@ namespace WinformUI.Content
 
         private void OpenFromChild(BaseForm childForm, bool deactiveSideButton)
         {
-            if(deactiveSideButton)
+            if (deactiveSideButton & _currentButton != null)
             {
                 _currentButton.BackColor = Color.FromArgb(68, 132, 188);
                 _currentButton.IconColor = Color.Gainsboro;
@@ -116,6 +133,7 @@ namespace WinformUI.Content
             _activeForm = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
+            childForm.Account = Account;
             panelContent.Controls.Clear();
             panelContent.Controls.Add(childForm);
             panelContent.Tag = childForm;
@@ -318,18 +336,18 @@ namespace WinformUI.Content
 
         private void btnFavlist_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new MovieForm(), (IconButton)sender);
+            OpenChildForm(new FavouriteForm(), (IconButton)sender);
         }
 
         private void btnChart_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new BookForm(), (IconButton)sender);
+            OpenChildForm(new CartForm(), (IconButton)sender);
 
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AccountForm { OpenFormEvent = OpenFromChild}, (IconButton)sender);
+            OpenChildForm(new AccountForm { OpenFormEvent = OpenFromChild }, (IconButton)sender);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -443,7 +461,7 @@ namespace WinformUI.Content
                                 slider.Add(movieObjectDetails);
                                 break;
                             case ObjectTypes.BigCards:
-                                var movieObjectBigCards = new MovieSliderObject();
+                                var movieObjectBigCards = new BigCard();
                                 movieObjectBigCards.Build(movie);
                                 slider.Add(movieObjectBigCards);
                                 break;
@@ -461,27 +479,114 @@ namespace WinformUI.Content
 
         private void AddToFavourites(object sender, EventArgs e)
         {
+            if (sender.GetType() == typeof(MovieSliderObject))
+            {
+                var obj = (MovieSliderObject)sender;
 
+                _movieFavListService.Add(new MovieFavList
+                {
+                    AccountId = Account.Id,
+                    MovieId = obj.RecordId
+                });
+            }
+            else
+            {
+                var obj = (BookSliderObject)sender;
+
+                _bookFavListService.Add(new BookFavList
+                {
+                    AccountId = Account.Id,
+                    BookId = obj.RecordId
+                });
+            }
         }
 
         private void AddToWishList(object sender, EventArgs e)
         {
+            if (sender.GetType() == typeof(MovieSliderObject))
+            {
+                var obj = (MovieSliderObject)sender;
 
+                _movieWishListService.Add(new MovieWishList
+                {
+                    AccountId = Account.Id,
+                    MovieId = obj.RecordId
+                });
+            }
+            else
+            {
+                var obj = (BookSliderObject)sender;
+
+                _bookWishListService.Add(new BookWishList
+                {
+                    AccountId = Account.Id,
+                    BookId = obj.RecordId
+                });
+            }
         }
 
         private void AddToCart(object sender, EventArgs e)
         {
+            if (sender.GetType() == typeof(MovieSliderObject))
+            {
+                var obj = (MovieSliderObject)sender;
 
+                _cartService.Add(new Cart
+                {
+                    AccountId = Account.Id,
+                    Type = ProductTypes.Movie,
+                    RecordId = obj.RecordId
+                });
+            }
+            else
+            {
+                var obj = (BookSliderObject)sender;
+
+                _cartService.Add(new Cart
+                {
+                    AccountId = Account.Id,
+                    Type = ProductTypes.Book,
+                    RecordId = obj.RecordId
+                });
+            }
         }
 
         private void SliderObjectBookClickEvent(object sender, EventArgs e)
         {
+            var id = 0;
+            try
+            {
+                var obj = (BookSliderObject)sender;
+                id = obj.RecordId;
+            }
+            catch { }
+            try
+            {
+                var obj = (BigCard)sender;
+                id = obj.RecordId;
+            }
+            catch { }
 
+            OpenFromChild(new BookForm { RecordId = id }, true);
         }
 
         private void SliderObjectMovieClickEvent(object sender, EventArgs e)
         {
+            var id = 0;
+            try
+            {
+                var obj = (MovieSliderObject)sender;
+                id = obj.RecordId;
+            }
+            catch { }
+            try
+            {
+                var obj = (BigCard)sender;
+                id = obj.RecordId;
+            }
+            catch { }
 
+            OpenFromChild(new MovieForm { RecordId = id }, true);
         }
 
         private SpecialSlider CreateSpecialSliderContent(SpecialSliderTypes sliderType, MenuContent content, List<MenuObject> objects)
@@ -648,7 +753,7 @@ namespace WinformUI.Content
         {
             panelContent.Controls.Clear();
 
-            var contents = _menuContentService.GetAll();
+            var contents = _menuContentService.GetAll().OrderByDescending(c => c.Priority);
 
             foreach (var item in contents)
             {

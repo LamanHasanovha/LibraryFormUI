@@ -273,7 +273,12 @@ namespace WinformUI.AdminPanel
             var dataGenre = (List<MovieGenre>)slcGenres.Data;
             foreach (var item in listGenre)
             {
-                indexesGenre.Add(dataGenre[item - 1].Id - 1);
+                for (int i = 0; i < dataGenre.Count; i++)
+                {
+                    if (dataGenre[i].Id == item)
+                        indexesGenre.Add(i);
+                }
+                //indexesGenre.Add(dataGenre[item - 1].Id - 1);
             }
             slcGenres.SelectedIndexes = indexesGenre;
             slcGenres.SetSelectedItems();
@@ -284,7 +289,12 @@ namespace WinformUI.AdminPanel
             var dataActor = (List<Actor>)slcActors.Data;
             foreach (var item in listActor)
             {
-                indexesActor.Add(dataActor[item - 1].Id - 1);
+                for (int i = 0; i < dataActor.Count; i++)
+                {
+                    if (dataActor[i].Id == item)
+                        indexesActor.Add(i);
+                }
+                //indexesActor.Add(dataActor[item - 1].Id - 1);
             }
             slcActors.SelectedIndexes = indexesActor;
             slcActors.SetSelectedItems();

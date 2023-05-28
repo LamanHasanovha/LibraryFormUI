@@ -38,11 +38,12 @@ namespace WinformUI.Content
             btnBook.IconColor = Color.Gainsboro;
             btnBook.ForeColor = Color.Gainsboro;
             btnBook.BackColor = Color.FromArgb(68, 132, 188);
-            //LoadBookWishList();
+            LoadBookWishList();
         }
 
         private void LoadBookWishList()
         {
+            panelMain.Controls.Clear();
             var books = _bookWishListService.GetByAccount(Account.Id);
 
             panelMain.Controls.Add(CreateDivider());
@@ -60,10 +61,21 @@ namespace WinformUI.Content
                 panelMain.Controls.Add(item);
                 panelMain.Controls.Add(CreateDivider());
             }
+            if (panelMain.Controls.Count == 1)
+            {
+                var label = new TransparentLabel();
+                label.Font = lblWishList.Font;
+                label.ForeColor = lblWishList.ForeColor;
+                label.Dock = DockStyle.Fill;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                label.Text = "No book added to wishlist";
+                panelMain.Controls.Add(label);
+            }
         }
 
         private void LoadMovieWishList()
         {
+            panelMain.Controls.Clear();
             var movies = _movieWishListService.GetByAccount(Account.Id);
 
             panelMain.Controls.Add(CreateDivider());
@@ -81,6 +93,16 @@ namespace WinformUI.Content
                 panelMain.Controls.Add(item);
                 panelMain.Controls.Add(CreateDivider());
             }
+            if (panelMain.Controls.Count == 1)
+            {
+                var label = new TransparentLabel();
+                label.Font = lblWishList.Font;
+                label.ForeColor = lblWishList.ForeColor;
+                label.Dock = DockStyle.Fill;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                label.Text = "No movie added to wishlist";
+                panelMain.Controls.Add(label);
+            }
         }
 
         private void btnBook_Click(object sender, EventArgs e)
@@ -91,7 +113,7 @@ namespace WinformUI.Content
             if (btnBook.IconColor == Color.Gainsboro)
                 return;
 
-            //LoadBookWishList();
+            LoadBookWishList();
         }
 
         private void btnMovie_Click(object sender, EventArgs e)
@@ -102,7 +124,7 @@ namespace WinformUI.Content
             if (btnMovie.IconColor == Color.Gainsboro)
                 return;
 
-            //LoadMovieWishList();
+            LoadMovieWishList();
         }
 
         private void RemoveFromWishList(int id, bool isBook)
@@ -123,7 +145,7 @@ namespace WinformUI.Content
 
         private void timerBook_Tick(object sender, EventArgs e)
         {
-            if (panelHighlight.Location.X <= 20)
+            if (panelHighlight.Location.X <= btnBook.Location.X + 10)
             {
                 timerBook.Stop();
                 btnMovie.IconColor = Color.FromArgb(68, 132, 188);
@@ -141,7 +163,7 @@ namespace WinformUI.Content
 
         private void timerMovie_Tick(object sender, EventArgs e)
         {
-            if (panelHighlight.Location.X >= 270)
+            if (panelHighlight.Location.X >= btnMovie.Location.X + 10)
             {
                 timerMovie.Stop();
                 btnMovie.IconColor = Color.Gainsboro;

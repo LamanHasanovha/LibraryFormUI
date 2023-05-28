@@ -77,8 +77,21 @@ namespace WinformUI.Infrastructure.Forms
             //reviewItem4.Build("User review review review review \n review \n \n review \n \n \n review", "Laman", "08.03.2023");
             //reviewItem5.Build("User review \n\n review", "Asim", "07.09.2023");
             //reviewItem6.Build("user review \n\n\n review \n\n review", "Laman", "22.07.2023");
-            
-            searchDropDownForm.Show();
+
+            //searchDropDownForm.Show();
+            var list = new List<Button>(new Button[]
+            {
+                new Button { Dock = DockStyle.Top, Text = "button5"},
+                new Button { Dock = DockStyle.Top, Text = "button4"},
+                new Button { Dock = DockStyle.Top, Text = "button3"},
+                new Button { Dock = DockStyle.Top, Text = "button2"},
+                new Button { Dock = DockStyle.Top, Text = "button1"},
+            });
+
+            foreach (var item in list)
+            {
+                panel1.Controls.Add(item);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
