@@ -16,7 +16,7 @@ namespace WinformUI.Infrastructure.CustomControls
 {
     public partial class SupriseMe : UserControl
     {
-        private int _type;
+        private int _type; // 1-book 2-movie
 
         [Browsable(false)]
         public Action<object, EventArgs> ShowBookClickEvent { get; set; }

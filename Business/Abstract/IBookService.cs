@@ -11,5 +11,6 @@ namespace Business.Abstract
         BookResponseModel GetRandomBook();
         BookResponseModel GetBookById(int bookId);
         string GetMaxMinValues();
+        List<BookResponseModel> GetPopularBooks();
     }
 }

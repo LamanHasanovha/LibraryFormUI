@@ -83,6 +83,23 @@ namespace Business.Concrete
             return result;
         }
 
+        public List<BookResponseModel> GetPopularBooks()
+        {
+            TokenCheck();
+            var response = Client.GetAsync(Endpoint + @"/getpopularbooks").Result;
+            var data = response.Content.ReadAsStringAsync().Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var temp = JsonConvert.DeserializeObject<ProblemDetails>(data);
+                throw new Exception(temp.Title + " : " + temp.Status + "\n" + temp.Detail);
+            }
+
+            var result = JsonConvert.DeserializeObject<List<BookResponseModel>>(data);
+
+            return result;
+        }
+
         public BookResponseModel GetRandomBook()
         {
             TokenCheck();

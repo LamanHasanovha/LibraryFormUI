@@ -16,7 +16,7 @@ namespace WinformUI
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new SearchDropDownForm());
+            System.Windows.Forms.Application.Run(new Login());
         }
     }
 }

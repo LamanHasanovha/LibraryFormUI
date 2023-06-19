@@ -188,10 +188,12 @@ namespace WinformUI.Content
             if(isBook)
             {
                 _bookFavListService.RemoveByAccount(Account.Id, id);
+                LoadBookFavList();
             }
             else
             {
                 _movieFavListService.RemoveByAccount(Account.Id, id);
+                LoadMovieFavList();
             }
         }
 

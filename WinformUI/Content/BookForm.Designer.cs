@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookForm));
             this.panelMain = new System.Windows.Forms.FlowLayoutPanel();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.rtcBook = new WinformUI.Infrastructure.CustomControls.RatingControl();
             this.btnAddCart = new FontAwesome.Sharp.IconButton();
             this.btnAddWishList = new FontAwesome.Sharp.IconButton();
             this.btnAddFavourites = new FontAwesome.Sharp.IconButton();
@@ -46,12 +47,18 @@
             this.sliderSimilars = new WinformUI.Infrastructure.CustomControls.Slider();
             this.panelDivider2 = new System.Windows.Forms.Panel();
             this.panelReviews = new System.Windows.Forms.Panel();
+            this.tbxReview = new WinformUI.Infrastructure.CustomControls.DevTextBox();
+            this.btnAddReview = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblReviews = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
-            this.rtcBook = new WinformUI.Infrastructure.CustomControls.RatingControl();
+            this.panelReviewItems = new System.Windows.Forms.Panel();
             this.panelMain.SuspendLayout();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
             this.panelReviews.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -88,6 +95,19 @@
             this.panelInfo.Size = new System.Drawing.Size(1538, 834);
             this.panelInfo.TabIndex = 73;
             // 
+            // rtcBook
+            // 
+            this.rtcBook.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtcBook.Location = new System.Drawing.Point(96, 630);
+            this.rtcBook.Name = "rtcBook";
+            this.rtcBook.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.rtcBook.RatingReport = "5.6";
+            this.rtcBook.ReloadRating = null;
+            this.rtcBook.SetRating = null;
+            this.rtcBook.Size = new System.Drawing.Size(414, 91);
+            this.rtcBook.TabIndex = 81;
+            this.rtcBook.Value = 0;
+            // 
             // btnAddCart
             // 
             this.btnAddCart.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -107,6 +127,7 @@
             this.btnAddCart.TabIndex = 80;
             this.btnAddCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddCart.UseVisualStyleBackColor = false;
+            this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
             // 
             // btnAddWishList
             // 
@@ -127,6 +148,7 @@
             this.btnAddWishList.TabIndex = 79;
             this.btnAddWishList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddWishList.UseVisualStyleBackColor = false;
+            this.btnAddWishList.Click += new System.EventHandler(this.btnAddWishList_Click);
             // 
             // btnAddFavourites
             // 
@@ -147,6 +169,7 @@
             this.btnAddFavourites.TabIndex = 78;
             this.btnAddFavourites.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddFavourites.UseVisualStyleBackColor = false;
+            this.btnAddFavourites.Click += new System.EventHandler(this.btnAddFavourites_Click);
             // 
             // lblPrice
             // 
@@ -315,39 +338,104 @@
             // 
             this.panelReviews.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelReviews.Controls.Add(this.lblReviews);
+            this.panelReviews.Controls.Add(this.tableLayoutPanel1);
             this.panelReviews.Location = new System.Drawing.Point(3, 1546);
             this.panelReviews.Name = "panelReviews";
             this.panelReviews.Size = new System.Drawing.Size(1530, 486);
             this.panelReviews.TabIndex = 77;
             // 
+            // tbxReview
+            // 
+            this.tbxReview.BackColor = System.Drawing.SystemColors.Window;
+            this.tbxReview.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbxReview.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbxReview.BorderRadius = 0;
+            this.tbxReview.BorderSize = 2;
+            this.tbxReview.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxReview.ForeColor = System.Drawing.Color.DimGray;
+            this.tbxReview.Location = new System.Drawing.Point(821, 12);
+            this.tbxReview.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxReview.Multiline = true;
+            this.tbxReview.Name = "tbxReview";
+            this.tbxReview.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbxReview.PasswordChar = false;
+            this.tbxReview.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbxReview.PlaceholderText = "";
+            this.tbxReview.Readonly = false;
+            this.tbxReview.Size = new System.Drawing.Size(428, 88);
+            this.tbxReview.TabIndex = 80;
+            this.tbxReview.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbxReview.Texts = "";
+            this.tbxReview.UnderlinedStyle = false;
+            // 
+            // btnAddReview
+            // 
+            this.btnAddReview.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAddReview.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddReview.FlatAppearance.BorderSize = 0;
+            this.btnAddReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddReview.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddReview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.btnAddReview.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnAddReview.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.btnAddReview.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddReview.IconSize = 60;
+            this.btnAddReview.Location = new System.Drawing.Point(1286, 23);
+            this.btnAddReview.Name = "btnAddReview";
+            this.btnAddReview.Size = new System.Drawing.Size(219, 68);
+            this.btnAddReview.TabIndex = 79;
+            this.btnAddReview.Text = "Add review";
+            this.btnAddReview.UseVisualStyleBackColor = false;
+            this.btnAddReview.Click += new System.EventHandler(this.btnAddReview_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelReviewItems, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1530, 486);
+            this.tableLayoutPanel1.TabIndex = 81;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblReviews);
+            this.panel1.Controls.Add(this.btnAddReview);
+            this.panel1.Controls.Add(this.tbxReview);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1524, 115);
+            this.panel1.TabIndex = 0;
+            // 
             // lblReviews
             // 
             this.lblReviews.BackColor = System.Drawing.Color.Transparent;
-            this.lblReviews.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblReviews.Font = new System.Drawing.Font("Comic Sans MS", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReviews.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblReviews.Location = new System.Drawing.Point(0, 0);
+            this.lblReviews.Location = new System.Drawing.Point(8, 8);
             this.lblReviews.Name = "lblReviews";
             this.lblReviews.Opacity = 0;
-            this.lblReviews.Size = new System.Drawing.Size(1530, 105);
-            this.lblReviews.TabIndex = 0;
-            this.lblReviews.Text = "Reviews :                                                              ";
+            this.lblReviews.Size = new System.Drawing.Size(467, 107);
+            this.lblReviews.TabIndex = 2;
+            this.lblReviews.Text = "Reviews :        ";
             this.lblReviews.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblReviews.TransparentBackColor = System.Drawing.Color.Black;
             // 
-            // rtcBook
+            // panelReviewItems
             // 
-            this.rtcBook.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtcBook.Location = new System.Drawing.Point(96, 630);
-            this.rtcBook.Name = "rtcBook";
-            this.rtcBook.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.rtcBook.RatingReport = "5.6";
-            this.rtcBook.ReloadRating = null;
-            this.rtcBook.SetRating = null;
-            this.rtcBook.Size = new System.Drawing.Size(414, 91);
-            this.rtcBook.TabIndex = 81;
-            this.rtcBook.Value = 0;
+            this.panelReviewItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelReviewItems.Location = new System.Drawing.Point(3, 124);
+            this.panelReviewItems.Name = "panelReviewItems";
+            this.panelReviewItems.Size = new System.Drawing.Size(1524, 359);
+            this.panelReviewItems.TabIndex = 1;
             // 
             // BookForm
             // 
@@ -365,6 +453,8 @@
             this.panelInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).EndInit();
             this.panelReviews.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -388,7 +478,12 @@
         private Infrastructure.CustomControls.Slider sliderSimilars;
         private System.Windows.Forms.Panel panelDivider2;
         private System.Windows.Forms.Panel panelReviews;
-        private Infrastructure.CustomControls.TransparentLabelNew lblReviews;
         private Infrastructure.CustomControls.RatingControl rtcBook;
+        private Infrastructure.CustomControls.DevTextBox tbxReview;
+        private FontAwesome.Sharp.IconButton btnAddReview;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private Infrastructure.CustomControls.TransparentLabelNew lblReviews;
+        private System.Windows.Forms.Panel panelReviewItems;
     }
 }

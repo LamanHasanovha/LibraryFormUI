@@ -41,6 +41,7 @@
             this.btnBooks = new FontAwesome.Sharp.IconButton();
             this.btnAccounts = new FontAwesome.Sharp.IconButton();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.panelHeader.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             this.panelSidebar.AutoScroll = true;
             this.panelSidebar.BackColor = System.Drawing.Color.Transparent;
+            this.panelSidebar.Controls.Add(this.btnBack);
             this.panelSidebar.Controls.Add(this.btnMainMenu);
             this.panelSidebar.Controls.Add(this.btnActors);
             this.panelSidebar.Controls.Add(this.btnAuthors);
@@ -112,7 +114,7 @@
             this.btnMainMenu.IconSize = 35;
             this.btnMainMenu.Location = new System.Drawing.Point(17, 576);
             this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(234, 80);
+            this.btnMainMenu.Size = new System.Drawing.Size(213, 80);
             this.btnMainMenu.TabIndex = 7;
             this.btnMainMenu.Text = "Main menu";
             this.btnMainMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -135,7 +137,7 @@
             this.btnActors.IconSize = 35;
             this.btnActors.Location = new System.Drawing.Point(17, 496);
             this.btnActors.Name = "btnActors";
-            this.btnActors.Size = new System.Drawing.Size(234, 80);
+            this.btnActors.Size = new System.Drawing.Size(213, 80);
             this.btnActors.TabIndex = 6;
             this.btnActors.Text = "Actors";
             this.btnActors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -158,7 +160,7 @@
             this.btnAuthors.IconSize = 35;
             this.btnAuthors.Location = new System.Drawing.Point(17, 416);
             this.btnAuthors.Name = "btnAuthors";
-            this.btnAuthors.Size = new System.Drawing.Size(234, 80);
+            this.btnAuthors.Size = new System.Drawing.Size(213, 80);
             this.btnAuthors.TabIndex = 5;
             this.btnAuthors.Text = "Authors";
             this.btnAuthors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -181,7 +183,7 @@
             this.btnDirectors.IconSize = 35;
             this.btnDirectors.Location = new System.Drawing.Point(17, 336);
             this.btnDirectors.Name = "btnDirectors";
-            this.btnDirectors.Size = new System.Drawing.Size(234, 80);
+            this.btnDirectors.Size = new System.Drawing.Size(213, 80);
             this.btnDirectors.TabIndex = 4;
             this.btnDirectors.Text = "Directors";
             this.btnDirectors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -204,7 +206,7 @@
             this.btnUtils.IconSize = 35;
             this.btnUtils.Location = new System.Drawing.Point(17, 256);
             this.btnUtils.Name = "btnUtils";
-            this.btnUtils.Size = new System.Drawing.Size(234, 80);
+            this.btnUtils.Size = new System.Drawing.Size(213, 80);
             this.btnUtils.TabIndex = 3;
             this.btnUtils.Text = "Utils";
             this.btnUtils.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -227,7 +229,7 @@
             this.btnMovies.IconSize = 35;
             this.btnMovies.Location = new System.Drawing.Point(17, 176);
             this.btnMovies.Name = "btnMovies";
-            this.btnMovies.Size = new System.Drawing.Size(234, 80);
+            this.btnMovies.Size = new System.Drawing.Size(213, 80);
             this.btnMovies.TabIndex = 2;
             this.btnMovies.Text = "Movies";
             this.btnMovies.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -250,7 +252,7 @@
             this.btnBooks.IconSize = 35;
             this.btnBooks.Location = new System.Drawing.Point(17, 96);
             this.btnBooks.Name = "btnBooks";
-            this.btnBooks.Size = new System.Drawing.Size(234, 80);
+            this.btnBooks.Size = new System.Drawing.Size(213, 80);
             this.btnBooks.TabIndex = 1;
             this.btnBooks.Text = "Books";
             this.btnBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -273,7 +275,7 @@
             this.btnAccounts.IconSize = 35;
             this.btnAccounts.Location = new System.Drawing.Point(17, 16);
             this.btnAccounts.Name = "btnAccounts";
-            this.btnAccounts.Size = new System.Drawing.Size(234, 80);
+            this.btnAccounts.Size = new System.Drawing.Size(213, 80);
             this.btnAccounts.TabIndex = 0;
             this.btnAccounts.Text = "Accounts";
             this.btnAccounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -289,6 +291,29 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1097, 698);
             this.panelContainer.TabIndex = 2;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.CaretLeft;
+            this.btnBack.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBack.IconSize = 35;
+            this.btnBack.Location = new System.Drawing.Point(17, 640);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(213, 80);
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "Back to login";
+            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // AdminForm
             // 
@@ -327,5 +352,6 @@
         private FontAwesome.Sharp.IconButton btnAuthors;
         private FontAwesome.Sharp.IconButton btnDirectors;
         private FontAwesome.Sharp.IconButton btnMainMenu;
+        private FontAwesome.Sharp.IconButton btnBack;
     }
 }

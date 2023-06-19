@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.Models.ResponseModels;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -100,7 +101,30 @@ namespace WinformUI.Infrastructure.CustomControls
             IsBook = false;
             lblTitle.Text = movie.Name;
             lblDescription.Text = movie.Description;
-            pcbImage.Load(movie.Image);
+            try
+            {
+                pcbImage.Load(movie.Image);
+            }
+            catch
+            {
+                pcbImage.Image = Properties.Resources.movie;
+            }
+            RecordId = movie.Id;
+        }
+
+        public void Build(MovieResponseModel movie)
+        {
+            IsBook = false;
+            lblTitle.Text = movie.Name;
+            lblDescription.Text = movie.Description;
+            try
+            {
+                pcbImage.Load(movie.Image);
+            }
+            catch
+            {
+                pcbImage.Image = Properties.Resources.movie;
+            }
             RecordId = movie.Id;
         }
 
@@ -109,7 +133,30 @@ namespace WinformUI.Infrastructure.CustomControls
             IsBook = true;
             lblTitle.Text = book.Name;
             lblDescription.Text=book.Description;
-            pcbImage.Load(book.Image);
+            try
+            {
+                pcbImage.Load(book.Image);
+            }
+            catch
+            {
+                pcbImage.Image = Properties.Resources.book;
+            }
+            RecordId = book.Id;
+        }
+
+        public void Build(BookResponseModel book)
+        {
+            try
+            {
+                pcbImage.Load(book.Image);
+            }
+            catch
+            {
+                pcbImage.Image = Properties.Resources.book;
+            }
+            IsBook = true;
+            lblTitle.Text = book.Name;
+            lblDescription.Text = book.Description;
             RecordId = book.Id;
         }
 

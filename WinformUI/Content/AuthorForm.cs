@@ -71,13 +71,24 @@ namespace WinformUI.Content
             }
 
             var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Author);
-            rtcAuthor.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+            if (ratings.Count > 0)
+            {
+                rtcAuthor.RatingReport = ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+                var temp = ratings.FirstOrDefault(r => r.AccountId == Account.Id);
+                if (temp != null)
+                    rtcAuthor.Value = temp.Value;
+            }
+            else
+                rtcAuthor.RatingReport = "0\n0";
         }
 
         private string ReloadRating()
         {
             var ratings = _ratingService.GetByRecord(RecordId, RatingTypes.Author);
-            return ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+            if (ratings.Count > 0)
+                return ratings.Select(r => r.Value).Average() + "\n" + ratings.Count;
+            else
+                return "0\n0";
         }
 
         private void SetRating(int rating)

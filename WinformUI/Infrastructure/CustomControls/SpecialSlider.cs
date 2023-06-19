@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Constants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,8 @@ namespace WinformUI.Infrastructure.CustomControls
             set { _sliderType = value; }
         }
 
+        public PersonTypes PersonType { get; set; }
+
         private List<BigCard> _bigCards;
         private List<NewsCard> _newsCards;
         private FlowLayoutPanel _sliderArea;
@@ -28,6 +31,8 @@ namespace WinformUI.Infrastructure.CustomControls
         public Action<object, EventArgs> BookClickEvent { get; set; }
         [Browsable(false)]
         public Action<object, EventArgs> MovieClickEvent { get; set; }
+        [Browsable(false)]
+        public Action<object, EventArgs> SeeAllClickEvent { get; set; }
 
         private string _imageUrl;
 
@@ -40,7 +45,11 @@ namespace WinformUI.Infrastructure.CustomControls
                 try
                 {
                     pcbImage.Load(value);
-                } catch { }
+                } 
+                catch 
+                {
+                    pcbImage.Image = Properties.Resources.man;
+                }
             }
         }
 
@@ -102,7 +111,7 @@ namespace WinformUI.Infrastructure.CustomControls
             get => btnShowAll.ForeColor;
             set => btnShowAll.ForeColor = value;
         }
-
+        public int RecordId { get; set; }
         public SpecialSlider()
         {
             InitializeComponent();
@@ -224,11 +233,24 @@ namespace WinformUI.Infrastructure.CustomControls
                 else if (Type == SpecialSliderTypes.BigCard & _bigCards.Count > 0)
                     _sliderArea.Left -= _bigCards[0].Width + 10;
         }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            SeeAllClickEvent?.Invoke(this, e);
+        }
     }
 
     public enum SpecialSliderTypes
     {
         NewsCard = 1,
         BigCard = 2
+    }
+
+    public enum PersonTypes
+    {
+        Actor = 1,
+        Author = 2,
+        Director = 3,
+        None = 4
     }
 }

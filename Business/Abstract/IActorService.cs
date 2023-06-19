@@ -4,5 +4,6 @@ namespace Business.Abstract
 {
     public interface IActorService : IServiceRepository<Actor>
     {
+        Actor GetRandomActor();
     }
 }

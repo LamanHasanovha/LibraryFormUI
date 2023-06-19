@@ -41,6 +41,7 @@ namespace WinformUI.Content
         private readonly IMovieWishListService _movieWishListService;
         private readonly IBookFavListService _bookFavListService;
         private readonly IMovieFavListService _movieFavListService;
+        private readonly IRecommenderService _recommenderService;
 
         public Account Account { get; set; }
         public SearchParams SearchParams { get; set; }
@@ -76,6 +77,8 @@ namespace WinformUI.Content
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _movieFavListService = new MovieFavListManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                      new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _recommenderService = new RecommenderManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                    new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
 
             _searchDropDownForm = new SearchDropDownForm
             {
@@ -331,23 +334,22 @@ namespace WinformUI.Content
 
         private void btnWishList_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new WishListForm(), (IconButton)sender);
+            OpenChildForm(new WishListForm { Account = Account}, (IconButton)sender);
         }
 
         private void btnFavlist_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FavouriteForm(), (IconButton)sender);
+            OpenChildForm(new FavouriteForm { Account = Account}, (IconButton)sender);
         }
 
         private void btnChart_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new CartForm(), (IconButton)sender);
-
+            OpenChildForm(new CartForm { Account = Account}, (IconButton)sender);
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AccountForm { OpenFormEvent = OpenFromChild }, (IconButton)sender);
+            OpenChildForm(new AccountForm { OpenFormEvent = OpenFromChild, Account = Account }, (IconButton)sender);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -420,7 +422,8 @@ namespace WinformUI.Content
             slider.ButtonColor = Color.FromArgb(230, 230, 230);
             slider.ButtonIconColor = Color.FromArgb(68, 132, 188);
             slider.DescriptionForeColor = slider.TitleForeColor = Color.FromArgb(68, 132, 188);
-            slider.TitleText = content.Title;
+            var text = content.Title.Split('|');
+            slider.TitleText = text.Length == 2 ? text[1] : content.Title;
             slider.DescriptionText = content.Description;
 
             slider.AddCart = AddToCart;
@@ -428,6 +431,114 @@ namespace WinformUI.Content
             slider.AddWishlist = AddToWishList;
             slider.MovieClickEvent = SliderObjectMovieClickEvent;
             slider.BookClickEvent = SliderObjectBookClickEvent;
+
+            if (text.Length > 1)
+            {
+                switch (text[0])
+                {
+                    case "User":
+                        switch (slider.Type)
+                        {
+                            case SliderType.Book:
+                                var books = _recommenderService.GetBooksByAccount(Account.Id, 10);
+                                foreach (var book in books)
+                                {
+                                    switch (slider.LayoutType)
+                                    {
+                                        case ObjectTypes.Details:
+                                            var bookObjectDetails = new BookSliderObject();
+                                            bookObjectDetails.Build(book);
+                                            slider.Add(bookObjectDetails);
+                                            break;
+                                        case ObjectTypes.BigCards:
+                                            var bookObjectBigCards = new BigCard();
+                                            bookObjectBigCards.Build(book);
+                                            slider.Add(bookObjectBigCards);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case SliderType.Movie:
+                                var movies = _recommenderService.GetMoviesByAccount(Account.Id, 10);
+                                foreach (var movie in movies)
+                                {
+                                    switch (slider.LayoutType)
+                                    {
+                                        case ObjectTypes.Details:
+                                            var movieObjectDetails = new MovieSliderObject();
+                                            movieObjectDetails.Build(movie);
+                                            slider.Add(movieObjectDetails);
+                                            break;
+                                        case ObjectTypes.BigCards:
+                                            var bookObjectBigCards = new BigCard();
+                                            bookObjectBigCards.Build(movie);
+                                            slider.Add(bookObjectBigCards);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case "Popular":
+                        switch (slider.Type)
+                        {
+                            case SliderType.Book:
+                                var books = _bookService.GetPopularBooks();
+                                foreach (var book in books)
+                                {
+                                    switch (slider.LayoutType)
+                                    {
+                                        case ObjectTypes.Details:
+                                            var bookObjectDetails = new BookSliderObject();
+                                            bookObjectDetails.Build(book);
+                                            slider.Add(bookObjectDetails);
+                                            break;
+                                        case ObjectTypes.BigCards:
+                                            var bookObjectBigCards = new BigCard();
+                                            bookObjectBigCards.Build(book);
+                                            slider.Add(bookObjectBigCards);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case SliderType.Movie:
+                                var movies = _movieService.GetPopularMovies();
+                                foreach (var movie in movies)
+                                {
+                                    switch (slider.LayoutType)
+                                    {
+                                        case ObjectTypes.Details:
+                                            var bookObjectDetails = new MovieSliderObject();
+                                            bookObjectDetails.Build(movie);
+                                            slider.Add(bookObjectDetails);
+                                            break;
+                                        case ObjectTypes.BigCards:
+                                            var bookObjectBigCards = new BigCard();
+                                            bookObjectBigCards.Build(movie);
+                                            slider.Add(bookObjectBigCards);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                return slider;
+            }
 
             foreach (var item in objects)
             {
@@ -567,7 +678,7 @@ namespace WinformUI.Content
             }
             catch { }
 
-            OpenFromChild(new BookForm { RecordId = id }, true);
+            OpenFromChild(new BookForm { RecordId = id, Account = Account }, true);
         }
 
         private void SliderObjectMovieClickEvent(object sender, EventArgs e)
@@ -586,7 +697,7 @@ namespace WinformUI.Content
             }
             catch { }
 
-            OpenFromChild(new MovieForm { RecordId = id }, true);
+            OpenFromChild(new MovieForm { RecordId = id, Account = Account }, true);
         }
 
         private SpecialSlider CreateSpecialSliderContent(SpecialSliderTypes sliderType, MenuContent content, List<MenuObject> objects)
@@ -600,12 +711,111 @@ namespace WinformUI.Content
             slider.ButtonIconColor = Color.FromArgb(68, 132, 188);
             slider.ShowButtonColor = Color.FromArgb(230, 230, 230);
             slider.ShowButtonColor = Color.FromArgb(68, 132, 188);
-            slider.ShowButtonForeColor = Color.FromArgb(68, 132, 188);
+            slider.ShowButtonForeColor = Color.Gainsboro;
             slider.DescriptionForeColor = Color.FromArgb(68, 132, 188);
             slider.DescriptionText = content.Description;
+            slider.PersonType = PersonTypes.None;
 
             slider.BookClickEvent = SpecialSliderBookClickEvent;
             slider.MovieClickEvent = SpecialSliderMovieClickEvent;
+            slider.SeeAllClickEvent = SpecialSliderSeeAllClickEvent;
+
+            var text = content.Title.Split('|');
+
+            if (text.Length > 1)
+            {
+                switch (text[0])
+                {
+                    case "Actor":
+                        slider.PersonType = PersonTypes.Actor;
+                        var actor = _actorService.GetRandomActor();
+                        slider.DescriptionText = actor.FirstName + " " + actor.LastName;
+                        slider.ImageUrl = actor.Image;
+                        slider.RecordId = actor.Id;
+                        var actorMovies = _movieService.GetByActor(actor.Id);
+                        if (actorMovies is null)
+                            break;
+                        foreach (var movie in actorMovies)
+                        {
+                            switch (sliderType)
+                            {
+                                case SpecialSliderTypes.NewsCard:
+                                    var newsCard = new NewsCard();
+                                    newsCard.Build(movie);
+                                    slider.Add(newsCard);
+                                    break;
+                                case SpecialSliderTypes.BigCard:
+                                    var bigCard = new BigCard();
+                                    bigCard.Build(movie);
+                                    slider.Add(bigCard);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    case "Author":
+                        slider.PersonType = PersonTypes.Author;
+                        var author = _authorService.GetRandomAuthor();
+                        slider.DescriptionText = author.FirstName + " " + author.LastName;
+                        slider.ImageUrl = author.Image;
+                        slider.RecordId = author.Id;
+                        var books = _bookService.GetByAuthor(author.Id);
+                        if (books is null)
+                            break;
+                        foreach (var book in books)
+                        {
+                            switch (sliderType)
+                            {
+                                case SpecialSliderTypes.NewsCard:
+                                    var newsCard = new NewsCard();
+                                    newsCard.Build(book);
+                                    slider.Add(newsCard);
+                                    break;
+                                case SpecialSliderTypes.BigCard:
+                                    var bigCard = new BigCard();
+                                    bigCard.Build(book);
+                                    slider.Add(bigCard);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    case "Director":
+                        slider.PersonType = PersonTypes.Director;
+                        var director = _directorService.GetRandomDirector();
+                        slider.DescriptionText = director.FirstName + " " + director.LastName;
+                        slider.ImageUrl = director.Image;
+                        slider.RecordId = director.Id;
+                        var directorMovies = _movieService.GetByDirector(director.Id);
+                        if (directorMovies is null)
+                            break;
+                        foreach (var movie in directorMovies)
+                        {
+                            switch (sliderType)
+                            {
+                                case SpecialSliderTypes.NewsCard:
+                                    var newsCard = new NewsCard();
+                                    newsCard.Build(movie);
+                                    slider.Add(newsCard);
+                                    break;
+                                case SpecialSliderTypes.BigCard:
+                                    var bigCard = new BigCard();
+                                    bigCard.Build(movie);
+                                    slider.Add(bigCard);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                return slider;
+            }
 
             foreach (var item in objects)
             {
@@ -659,12 +869,61 @@ namespace WinformUI.Content
 
         private void SpecialSliderBookClickEvent(object sender, EventArgs e)
         {
+            var id = 0;
+            try
+            {
+                var obj = (BigCard)sender;
+                id = obj.RecordId;
+            }
+            catch { }
+            try
+            {
+                var obj = (NewsCard)sender;
+                id = obj.RecordId;
+            }
+            catch { }
 
+            OpenFromChild(new BookForm { RecordId = id, Account = Account }, true);
         }
 
         private void SpecialSliderMovieClickEvent(object sender, EventArgs e)
         {
+            var id = 0;
+            try
+            {
+                var obj = (BigCard)sender;
+                id = obj.RecordId;
+            }
+            catch { }
+            try
+            {
+                var obj = (NewsCard)sender;
+                id = obj.RecordId;
+            }
+            catch { }
 
+            OpenFromChild(new MovieForm { RecordId = id, Account = Account }, true);
+        }
+
+        private void SpecialSliderSeeAllClickEvent(object sender, EventArgs e)
+        {
+            var obj = (SpecialSlider)sender;
+            switch (obj.PersonType)
+            {
+                case PersonTypes.Actor:
+                    OpenFromChild(new ActorForm { RecordId = obj.RecordId, Account = Account }, true);
+                    break;
+                case PersonTypes.Author:
+                    OpenFromChild(new AuthorForm { RecordId = obj.RecordId, Account = Account }, true);
+                    break;
+                case PersonTypes.Director:
+                    OpenFromChild(new DirectorForm { RecordId = obj.RecordId, Account = Account }, true);
+                    break;
+                case PersonTypes.None:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private NewsPresenter CreateNewsPresenterContent(MenuContent content, List<MenuObject> objects)
@@ -709,12 +968,14 @@ namespace WinformUI.Content
 
         private void PresenterBookClickEvent(object sender, EventArgs e)
         {
-
+            var obj = (NewsCard)sender;
+            OpenFromChild(new BookForm { RecordId = obj.RecordId, Account = Account }, true);
         }
 
         private void PresenterMovieClickEvent(object sender, EventArgs e)
         {
-
+            var obj = (NewsCard)sender;
+            OpenFromChild(new MovieForm { RecordId = obj.RecordId, Account = Account }, true);
         }
 
         private SupriseMe CreateSupriseMeContent(MenuContent content, List<MenuObject> objects)
@@ -731,12 +992,14 @@ namespace WinformUI.Content
 
         private void SupriseMeShowBookClickEvent(object sender, EventArgs e)
         {
-
+            var obj = (SupriseMe)sender;
+            OpenFromChild(new BookForm { RecordId = obj.RecordId, Account = Account }, true);
         }
 
         private void SupriseMeShowMovieClickEvent(object sender, EventArgs e)
         {
-
+            var obj = (SupriseMe)sender;
+            OpenFromChild(new MovieForm { RecordId = obj.RecordId, Account = Account }, true);
         }
 
         private ButtonComplex CreateButtonComplexContent(MenuContent content, List<MenuObject> objects)

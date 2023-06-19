@@ -50,6 +50,7 @@
             // 
             // panelHighlight
             // 
+            this.panelHighlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelHighlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.panelHighlight.Location = new System.Drawing.Point(860, 84);
             this.panelHighlight.Name = "panelHighlight";
@@ -58,6 +59,7 @@
             // 
             // btnMovie
             // 
+            this.btnMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMovie.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMovie.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,6 +78,7 @@
             // 
             // btnBook
             // 
+            this.btnBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBook.FlatAppearance.BorderSize = 0;
             this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;

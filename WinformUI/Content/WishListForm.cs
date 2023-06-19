@@ -136,10 +136,12 @@ namespace WinformUI.Content
             if (isBook)
             {
                 _bookWishListService.RemoveByAccount(Account.Id, id);
+                LoadBookWishList();
             }
             else
             {
                 _movieWishListService.RemoveByAccount(Account.Id, id);
+                LoadMovieWishList();
             }
         }
 

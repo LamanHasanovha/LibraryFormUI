@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.Models.ResponseModels;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -73,6 +74,22 @@ namespace WinformUI.Infrastructure.CustomControls
             }
             lblName.Text = book.Name;
             //lblAuthor.Text = book.Author;
+            lblPrice.Text = book.Price.ToString();
+            RecordId = book.Id;
+        }
+
+        public void Build(BookResponseModel book)
+        {
+            try
+            {
+                pcbImage.Load(book.Image);
+            }
+            catch
+            {
+                pcbImage.Image = Properties.Resources.book;
+            }
+            lblName.Text = book.Name;
+            lblAuthor.Text = book.Author;
             lblPrice.Text = book.Price.ToString();
             RecordId = book.Id;
         }

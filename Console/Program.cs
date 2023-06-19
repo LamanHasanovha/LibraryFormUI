@@ -9,69 +9,71 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var rec = new Recommender();
+            //var rec = new Recommender();
 
-            var books = new List<Book>(new Book[]
-            {
-                new Book(1),
-                new Book(2),
-                new Book(3),
-                new Book(4),
-                new Book(5),
-                new Book(6),
-                new Book(7),
-                new Book(8),
-                new Book(9)
-            });
+            //var books = new List<Book>(new Book[]
+            //{
+            //    new Book(1),
+            //    new Book(2),
+            //    new Book(3),
+            //    new Book(4),
+            //    new Book(5),
+            //    new Book(6),
+            //    new Book(7),
+            //    new Book(8),
+            //    new Book(9)
+            //});
 
-            var accounts = new List<Account>(new Account[]
-            {
-                new Account(1),
-                new Account(2),
-                new Account(3),
-                new Account(4),
-                new Account(5),
-                new Account(6),
-                new Account(7),
-                new Account(8),
-                new Account(9)
-            });
+            //var accounts = new List<Account>(new Account[]
+            //{
+            //    new Account(1),
+            //    new Account(2),
+            //    new Account(3),
+            //    new Account(4),
+            //    new Account(5),
+            //    new Account(6),
+            //    new Account(7),
+            //    new Account(8),
+            //    new Account(9)
+            //});
 
-            var ratings = new List<Rating>(new Rating[]
-            {
-                new Rating(1,1,1,3),
-                new Rating(2,1,2,5),
-                new Rating(3,1,5,4),
-                new Rating(4,1,9,1),
-                new Rating(5,1,7,2),
-                new Rating(6,2,2,3),
-                new Rating(7,2,9,5),
-                new Rating(8,2,1,4),
-                new Rating(9,2,5,1),
-                new Rating(10,2,3,2),
-                new Rating(11,3,1,3),
-                new Rating(12,3,8,1),
-                new Rating(13,3,6,2),
-                new Rating(14,3,3,5),
-                new Rating(15,3,2,4),
-                new Rating(16,4,8,3),
-                new Rating(17,4,9,2),
-                new Rating(18,4,7,1),
-                new Rating(19,4,1,4),
-                new Rating(20,4,6,5),
-                new Rating(21,5,3,3),
-                new Rating(22,5,4,4),
-                new Rating(23,5,5,5),
-                new Rating(24,5,6,2),
-                new Rating(25,5,8,1)
-            });
+            //var ratings = new List<Rating>(new Rating[]
+            //{
+            //    new Rating(1,1,1,3),
+            //    new Rating(2,1,2,5),
+            //    new Rating(3,1,5,4),
+            //    new Rating(4,1,9,1),
+            //    new Rating(5,1,7,2),
+            //    new Rating(6,2,2,3),
+            //    new Rating(7,2,9,5),
+            //    new Rating(8,2,1,4),
+            //    new Rating(9,2,5,1),
+            //    new Rating(10,2,3,2),
+            //    new Rating(11,3,1,3),
+            //    new Rating(12,3,8,1),
+            //    new Rating(13,3,6,2),
+            //    new Rating(14,3,3,5),
+            //    new Rating(15,3,2,4),
+            //    new Rating(16,4,8,3),
+            //    new Rating(17,4,9,2),
+            //    new Rating(18,4,7,1),
+            //    new Rating(19,4,1,4),
+            //    new Rating(20,4,6,5),
+            //    new Rating(21,5,3,3),
+            //    new Rating(22,5,4,4),
+            //    new Rating(23,5,5,5),
+            //    new Rating(24,5,6,2),
+            //    new Rating(25,5,8,1)
+            //});
 
-            var result = rec.Train(books, accounts, ratings);
+            //var result = rec.Train(books, accounts, ratings);
 
-            foreach (var item in result)
-            {
-                System.Console.WriteLine(item.Id + " " + item.ItemOneId + " " + item.ItemTwoId + " " + item.Similarity);
-            }
+            //foreach (var item in result)
+            //{
+            //    System.Console.WriteLine(item.Id + " " + item.ItemOneId + " " + item.ItemTwoId + " " + item.Similarity);
+            //}
+
+            System.Console.WriteLine("str".Split('|').Length);
 
             System.Console.ReadLine();
         }

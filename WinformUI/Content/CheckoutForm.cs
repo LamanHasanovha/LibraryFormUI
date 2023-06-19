@@ -5,6 +5,7 @@ using Core.WinFormUI.Design.DropShadowing;
 using Core.WinFormUI.Design.MessageBox;
 using Core.WinFormUI.Infrastructure.Helpers;
 using Entities.Concrete;
+using Entities.Constants;
 using Entities.Models.RequestModels;
 using Entities.Models.ResponseModels;
 using System;
@@ -24,6 +25,10 @@ namespace WinformUI.Content
     {
         private readonly IPurchaseService _purchaseService;
         private readonly IPaymentService _paymentService;
+        private readonly IBookWishListService _bookWishListService;
+        private readonly IMovieWishListService _movieWishListService;
+        private readonly ICartService _cartService;
+
         public List<CartResponseModel> Orders { get; set; }
         public Account Account { get; set; }
 
@@ -34,6 +39,13 @@ namespace WinformUI.Content
             _purchaseService = new PurchaseManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
                                   new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
             _paymentService = new PaymentManager();
+            _bookWishListService = new BookWishListManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                                  new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _movieWishListService = new MovieWishListManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                                              new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+            _cartService = new CartManager(InstanceFactory.GetInstance<HttpClient>(new BusinessModule()), ConfigurationHelper.GetAppSetting("BaseAddress"),
+                                  new UserForLoginModel { Email = ConfigurationHelper.GetAppSetting("Email"), Password = ConfigurationHelper.GetAppSetting("Password") });
+
         }
 
         private void CheckoutForm_Load(object sender, EventArgs e)
@@ -134,7 +146,18 @@ namespace WinformUI.Content
                     ProductType = item.ProductType,
                     RecordId = item.RecordId
                 });
+                _cartService.RemoveByAccount(Account.Id, item.RecordId, item.ProductType);
+                switch (item.ProductType)
+                {
+                    case ProductTypes.Book:
+                        _bookWishListService.RemoveByAccount(Account.Id, item.RecordId);
+                        break;
+                    case ProductTypes.Movie:
+                        _movieWishListService.RemoveByAccount(Account.Id, item.RecordId);
+                        break;
+                }
             }
+            this.Close();
         }
 
         private List<OrderInfoModel> GetOrders()
@@ -155,11 +178,11 @@ namespace WinformUI.Content
 
         private bool CheckExpDate(string expDate)
         {
-            if(expDate.Length != 5)
+            if (expDate.Length != 5)
                 return false;
 
             var data = expDate.Split('/');
-            if (int.Parse(data[0]) < 1 | int.Parse(data[0]) > 12) 
+            if (int.Parse(data[0]) < 1 | int.Parse(data[0]) > 12)
                 return false;
 
             return true;

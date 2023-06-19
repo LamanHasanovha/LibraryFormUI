@@ -46,7 +46,7 @@ namespace WinformUI.Infrastructure.CustomControls
         {
             SetStar(2);
             Value = 2;
-            SetRating?.Invoke(Value);
+            //SetRating?.Invoke(Value);
             RatingReport = ReloadRating?.Invoke();
         }
 

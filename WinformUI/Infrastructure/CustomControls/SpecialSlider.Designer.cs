@@ -66,8 +66,8 @@
             // panelMain
             // 
             this.panelMain.ColumnCount = 2;
-            this.panelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.panelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.panelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.panelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.panelMain.Controls.Add(this.panelSidebar, 0, 0);
             this.panelMain.Controls.Add(this.panelContent, 1, 0);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -82,8 +82,6 @@
             // 
             this.panelSidebar.ColumnCount = 1;
             this.panelSidebar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelSidebar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelSidebar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.panelSidebar.Controls.Add(this.pcbImage, 0, 0);
             this.panelSidebar.Controls.Add(this.panelButton, 0, 2);
             this.panelSidebar.Controls.Add(this.lblDescription, 0, 1);
@@ -91,10 +89,10 @@
             this.panelSidebar.Location = new System.Drawing.Point(3, 3);
             this.panelSidebar.Name = "panelSidebar";
             this.panelSidebar.RowCount = 3;
-            this.panelSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.panelSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.panelSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.panelSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.panelSidebar.Size = new System.Drawing.Size(276, 609);
+            this.panelSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.panelSidebar.Size = new System.Drawing.Size(182, 609);
             this.panelSidebar.TabIndex = 0;
             // 
             // pcbImage
@@ -104,8 +102,8 @@
             this.pcbImage.Image = ((System.Drawing.Image)(resources.GetObject("pcbImage.Image")));
             this.pcbImage.Location = new System.Drawing.Point(3, 3);
             this.pcbImage.Name = "pcbImage";
-            this.pcbImage.Size = new System.Drawing.Size(270, 237);
-            this.pcbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbImage.Size = new System.Drawing.Size(176, 359);
+            this.pcbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbImage.TabIndex = 0;
             this.pcbImage.TabStop = false;
             // 
@@ -117,26 +115,27 @@
             this.panelButton.Location = new System.Drawing.Point(3, 489);
             this.panelButton.Name = "panelButton";
             this.panelButton.Padding = new System.Windows.Forms.Padding(30);
-            this.panelButton.Size = new System.Drawing.Size(270, 117);
+            this.panelButton.Size = new System.Drawing.Size(176, 117);
             this.panelButton.TabIndex = 1;
             // 
             // btnShowAll
             // 
+            this.btnShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
             this.btnShowAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnShowAll.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowAll.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowAll.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnShowAll.IconChar = FontAwesome.Sharp.IconChar.NfcSymbol;
             this.btnShowAll.IconColor = System.Drawing.Color.Gainsboro;
             this.btnShowAll.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShowAll.Location = new System.Drawing.Point(30, 30);
             this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(210, 57);
-            this.btnShowAll.TabIndex = 1;
+            this.btnShowAll.Size = new System.Drawing.Size(116, 57);
+            this.btnShowAll.TabIndex = 0;
             this.btnShowAll.Text = "SEE ALL";
-            this.btnShowAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnShowAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.UseVisualStyleBackColor = false;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // lblDescription
             // 
@@ -144,10 +143,10 @@
             this.lblDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDescription.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDescription.Location = new System.Drawing.Point(3, 243);
+            this.lblDescription.Location = new System.Drawing.Point(3, 365);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Opacity = 0;
-            this.lblDescription.Size = new System.Drawing.Size(270, 243);
+            this.lblDescription.Size = new System.Drawing.Size(176, 121);
             this.lblDescription.TabIndex = 1;
             this.lblDescription.Text = "Description";
             this.lblDescription.TransparentBackColor = System.Drawing.Color.Black;
@@ -159,12 +158,12 @@
             this.panelContent.Controls.Add(this.panelArrows, 0, 0);
             this.panelContent.Controls.Add(this.panelHelper, 0, 1);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(285, 3);
+            this.panelContent.Location = new System.Drawing.Point(191, 3);
             this.panelContent.Name = "panelContent";
             this.panelContent.RowCount = 2;
             this.panelContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.panelContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.panelContent.Size = new System.Drawing.Size(652, 609);
+            this.panelContent.Size = new System.Drawing.Size(746, 609);
             this.panelContent.TabIndex = 1;
             // 
             // panelArrows
@@ -175,7 +174,7 @@
             this.panelArrows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelArrows.Location = new System.Drawing.Point(3, 3);
             this.panelArrows.Name = "panelArrows";
-            this.panelArrows.Size = new System.Drawing.Size(646, 54);
+            this.panelArrows.Size = new System.Drawing.Size(740, 54);
             this.panelArrows.TabIndex = 4;
             // 
             // btnLeft
@@ -188,7 +187,7 @@
             this.btnLeft.IconColor = System.Drawing.Color.Gainsboro;
             this.btnLeft.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLeft.IconSize = 40;
-            this.btnLeft.Location = new System.Drawing.Point(486, 0);
+            this.btnLeft.Location = new System.Drawing.Point(580, 0);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(80, 54);
             this.btnLeft.TabIndex = 4;
@@ -209,7 +208,7 @@
             this.btnRight.IconColor = System.Drawing.Color.Gainsboro;
             this.btnRight.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRight.IconSize = 40;
-            this.btnRight.Location = new System.Drawing.Point(566, 0);
+            this.btnRight.Location = new System.Drawing.Point(660, 0);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(80, 54);
             this.btnRight.TabIndex = 3;
@@ -228,7 +227,7 @@
             this.panelHelper.Location = new System.Drawing.Point(3, 63);
             this.panelHelper.Name = "panelHelper";
             this.panelHelper.Padding = new System.Windows.Forms.Padding(50, 40, 0, 0);
-            this.panelHelper.Size = new System.Drawing.Size(646, 543);
+            this.panelHelper.Size = new System.Drawing.Size(740, 543);
             this.panelHelper.TabIndex = 5;
             // 
             // panelSlider
@@ -237,7 +236,7 @@
             this.panelSlider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSlider.Location = new System.Drawing.Point(50, 40);
             this.panelSlider.Name = "panelSlider";
-            this.panelSlider.Size = new System.Drawing.Size(596, 503);
+            this.panelSlider.Size = new System.Drawing.Size(690, 503);
             this.panelSlider.TabIndex = 5;
             // 
             // SpecialSlider
@@ -270,7 +269,6 @@
         private System.Windows.Forms.TableLayoutPanel panelSidebar;
         private TransparentPictureBox pcbImage;
         private TransparentPanel panelButton;
-        private FontAwesome.Sharp.IconButton btnShowAll;
         private TransparentLabelNew lblDescription;
         private System.Windows.Forms.TableLayoutPanel panelContent;
         private TransparentPanel panelArrows;
@@ -278,5 +276,6 @@
         private FontAwesome.Sharp.IconButton btnRight;
         private TransparentPanel panelSlider;
         private TransparentPanel panelHelper;
+        private FontAwesome.Sharp.IconButton btnShowAll;
     }
 }

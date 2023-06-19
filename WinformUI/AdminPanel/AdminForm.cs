@@ -136,6 +136,13 @@ namespace WinformUI.AdminPanel
             OpenChildForm(new MainMenuAdminForm(), panelContainer);
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = new Login();
+            form.ShowDialog();
+        }
+
         //Overridden methods
         protected override void WndProc(ref Message m)
         {
@@ -249,6 +256,5 @@ namespace WinformUI.AdminPanel
             }
         }
 
-       
     }
 }

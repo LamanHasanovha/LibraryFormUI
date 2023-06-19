@@ -49,11 +49,18 @@
             this.sliderSimilars = new WinformUI.Infrastructure.CustomControls.Slider();
             this.panelDivider2 = new System.Windows.Forms.Panel();
             this.panelReviews = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelReviewItems = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblReviews = new WinformUI.Infrastructure.CustomControls.TransparentLabelNew();
+            this.btnAddReview = new FontAwesome.Sharp.IconButton();
+            this.tbxReview = new WinformUI.Infrastructure.CustomControls.DevTextBox();
             this.panelMain.SuspendLayout();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
             this.panelReviews.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -110,9 +117,9 @@
             this.lblGenres.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblGenres.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblGenres.Location = new System.Drawing.Point(996, 580);
+            this.lblGenres.Location = new System.Drawing.Point(892, 580);
             this.lblGenres.Name = "lblGenres";
-            this.lblGenres.Size = new System.Drawing.Size(447, 68);
+            this.lblGenres.Size = new System.Drawing.Size(551, 68);
             this.lblGenres.TabIndex = 82;
             this.lblGenres.TabStop = false;
             this.lblGenres.Text = "Genres";
@@ -150,6 +157,7 @@
             this.btnAddCart.TabIndex = 80;
             this.btnAddCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddCart.UseVisualStyleBackColor = false;
+            this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
             // 
             // btnAddWishList
             // 
@@ -170,6 +178,7 @@
             this.btnAddWishList.TabIndex = 79;
             this.btnAddWishList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddWishList.UseVisualStyleBackColor = false;
+            this.btnAddWishList.Click += new System.EventHandler(this.btnAddWishList_Click);
             // 
             // btnAddFavourites
             // 
@@ -190,6 +199,7 @@
             this.btnAddFavourites.TabIndex = 78;
             this.btnAddFavourites.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddFavourites.UseVisualStyleBackColor = false;
+            this.btnAddFavourites.Click += new System.EventHandler(this.btnAddFavourites_Click);
             // 
             // lblPrice
             // 
@@ -358,26 +368,105 @@
             // 
             this.panelReviews.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelReviews.Controls.Add(this.lblReviews);
+            this.panelReviews.Controls.Add(this.tableLayoutPanel1);
             this.panelReviews.Location = new System.Drawing.Point(3, 1546);
             this.panelReviews.Name = "panelReviews";
             this.panelReviews.Size = new System.Drawing.Size(1530, 486);
             this.panelReviews.TabIndex = 77;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.panelReviewItems, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1530, 486);
+            this.tableLayoutPanel1.TabIndex = 83;
+            // 
+            // panelReviewItems
+            // 
+            this.panelReviewItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelReviewItems.Location = new System.Drawing.Point(3, 124);
+            this.panelReviewItems.Name = "panelReviewItems";
+            this.panelReviewItems.Size = new System.Drawing.Size(1524, 359);
+            this.panelReviewItems.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblReviews);
+            this.panel1.Controls.Add(this.btnAddReview);
+            this.panel1.Controls.Add(this.tbxReview);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1524, 115);
+            this.panel1.TabIndex = 0;
+            // 
             // lblReviews
             // 
             this.lblReviews.BackColor = System.Drawing.Color.Transparent;
-            this.lblReviews.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblReviews.Font = new System.Drawing.Font("Comic Sans MS", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReviews.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
-            this.lblReviews.Location = new System.Drawing.Point(0, 0);
+            this.lblReviews.Location = new System.Drawing.Point(3, 12);
             this.lblReviews.Name = "lblReviews";
             this.lblReviews.Opacity = 0;
-            this.lblReviews.Size = new System.Drawing.Size(1530, 100);
+            this.lblReviews.Size = new System.Drawing.Size(602, 88);
             this.lblReviews.TabIndex = 0;
-            this.lblReviews.Text = "Reviews :                                                              ";
+            this.lblReviews.Text = "Reviews :              ";
             this.lblReviews.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblReviews.TransparentBackColor = System.Drawing.Color.Black;
+            // 
+            // btnAddReview
+            // 
+            this.btnAddReview.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAddReview.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddReview.FlatAppearance.BorderSize = 0;
+            this.btnAddReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddReview.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddReview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.btnAddReview.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnAddReview.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(132)))), ((int)(((byte)(188)))));
+            this.btnAddReview.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddReview.IconSize = 60;
+            this.btnAddReview.Location = new System.Drawing.Point(1286, 21);
+            this.btnAddReview.Name = "btnAddReview";
+            this.btnAddReview.Size = new System.Drawing.Size(219, 68);
+            this.btnAddReview.TabIndex = 81;
+            this.btnAddReview.Text = "Add review";
+            this.btnAddReview.UseVisualStyleBackColor = false;
+            this.btnAddReview.Click += new System.EventHandler(this.btnAddReview_Click);
+            // 
+            // tbxReview
+            // 
+            this.tbxReview.BackColor = System.Drawing.SystemColors.Window;
+            this.tbxReview.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbxReview.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbxReview.BorderRadius = 0;
+            this.tbxReview.BorderSize = 2;
+            this.tbxReview.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxReview.ForeColor = System.Drawing.Color.DimGray;
+            this.tbxReview.Location = new System.Drawing.Point(837, 13);
+            this.tbxReview.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxReview.Multiline = true;
+            this.tbxReview.Name = "tbxReview";
+            this.tbxReview.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbxReview.PasswordChar = false;
+            this.tbxReview.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbxReview.PlaceholderText = "";
+            this.tbxReview.Readonly = false;
+            this.tbxReview.Size = new System.Drawing.Size(428, 88);
+            this.tbxReview.TabIndex = 82;
+            this.tbxReview.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbxReview.Texts = "";
+            this.tbxReview.UnderlinedStyle = false;
             // 
             // MovieForm
             // 
@@ -394,6 +483,8 @@
             this.panelInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).EndInit();
             this.panelReviews.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -421,5 +512,10 @@
         private Infrastructure.CustomControls.TransparentLabel lblImdb;
         private Infrastructure.CustomControls.TransparentLabel lblGenres;
         private Infrastructure.CustomControls.RatingControl rtcMovie;
+        private Infrastructure.CustomControls.DevTextBox tbxReview;
+        private FontAwesome.Sharp.IconButton btnAddReview;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelReviewItems;
     }
 }
